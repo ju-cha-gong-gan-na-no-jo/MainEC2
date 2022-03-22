@@ -1,14 +1,55 @@
 const express = require("express");
 const app = express();
+const bodyParser = require('body-parser');
+const axios = require("axios");
+const request = require('request');
+const CircularJSON = require('circular-json');
+const qs = require('qs');
 
+//메인페이지
 app.get('/', function (req, res){
-  res.render('manager/index')
-})
+  axios.get('http://3.36.211.38:3000/status/car/data/all')
+  .then(data => {
+    console.log(data.data);
+    console.log(typeof(data.data.current_data))
+    console.log(typeof(data))
 
+    console.log(typeof(data))
+
+    console.log(typeof(data))
+
+
+
+    // JSON.stringify(data)
+    res.render('manager/index', {'data' : data})
+  });
+  // .catch(function(error) {
+  //   console.log(error);
+  // });
+  // .finally(function() {
+  //
+  // });
+
+  // .catch(error => {
+  //    console.error(error)
+  //  })
+
+});
+
+// app.get('/', function (req, res){
+//   const uls = "http://3.36.211.38:3000/status/car/data/all";
+//   requset(urls, {json: true}, (err, result, body) => {
+//     res.render('manager/index', {body})
+//   })
+// });
+
+
+//주차현황
 app.get('/parking_status', function (req, res){
   res.render('manager/parking_status')
 })
 
+//정산
 app.get('/calculate', function (req, res){
   res.render('manager/calculate')
 })

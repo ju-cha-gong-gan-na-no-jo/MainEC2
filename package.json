@@ -9,10 +9,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.26.1",
+    "circular-json": "^0.5.9",
     "cookie-parser": "^1.4.6",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
     "fullcalendar": "^5.10.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "qs": "^6.10.3",
+    "request": "^2.88.2"
   }
 }

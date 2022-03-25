@@ -22,10 +22,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 var restful = require('./routes/main.js');
 var manager = require('./routes/manager.js');
 var store = require('./routes/store.js');
+var content = require('./routes/content.js');
 
 app.use('/store', store);
 app.use('/manager', manager);
 app.use('/', restful);
+app.use('/content', content);
 
 app.listen(app.get('port'), () =>{
 	console.log('3000 Port : 서버 실행 중')

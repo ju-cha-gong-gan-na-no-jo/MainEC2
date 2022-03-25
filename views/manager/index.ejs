@@ -64,31 +64,6 @@
   <hr>
 
 
-<p><%= data.data.current_data %></p>
-<p><%= data.data.current_data[0]['차량번호'] %></p>
-<p>test</p>
-
-<table>
-    <th>차량번호</th>
-    <th>입차시간</th>
-    <th>출차시간</th>
-    <th>유형</th>
-    <th>입주민</th>
-    <th>비고</th>
-    <% for(var i=0; i < data.data.current_data.length; i++){ %>
-        <tr>
-            <td><%= data.data.current_data[i]['차량번호'] %></td>
-            <td><%= data.data.current_data[i]['입차시간'] %></td>
-            <td><%= data.data.current_data[i]['출차시간'] %></td>
-            <td><%= data.data.current_data[i]['유형'] %></td>
-            <td><%= data.data.current_data[i]['입주민'] %></td>
-            <td><%= data.data.current_data[i]['비고'] %></td>
-        </tr>
-         <% } %>
-
-</table>
-
-
 
 
 

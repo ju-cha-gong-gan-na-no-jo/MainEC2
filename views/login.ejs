@@ -5,34 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="css/joinlogin.css"/>
+
+
 </head>
 <body>
-<h1>로그인 페이지</h1>
-<form method='post' action='http://52.79.193.214:3000/user/add' name='userform' >
-     MEMBER_NUM <input type='text' size='10' name=' s'>
-     <p>
-     NAME <input type='text' size='10' name='name'>
-     <p>
-     DONG <input type='text' size='10' name='dong'>
-     <p>
-     HO <input type='text' name='ho' >
-     <p>
-     PHONE_NUM <input type='text' name='phone_num'>
-     <p>
-     MEMBER_TYPE_NUM <input type='text' name='member_type_num'>
-     <p>
-     REMARK <input type='text' name='remark'>
-     <p>
+    <div style="border-radius: 10px; margin-left: 500px; margin-right: 500px; height: 500px;  padding-bottom: 0px; background-color: #fff; box-shadow:2px 2px 10px rgb(199, 199, 199);">
 
-     <input type='submit' value='insert' onclick='this.form.action="http://52.79.193.214:3000/user/add"' >
-     <input type='submit' value='update' onclick='this.form.action="/update"' >
-     <input type='submit' value='delete' onclick='this.form.action="/delete"' >
-</form>
+        <form action="http://52.79.193.214:3000/user/auth" method="POST" class="cen" style="margin-top: 150px;" >
+            <br> <br><br> <br>
+         <img class="img" src="img/logo1.png" alt="logo" width="115"  >
+         <br> <br>
+
+          <div class="input-box">
+            <input id="username" type="text" name="username" placeholder="아이디" >
+            <label for="username" style="font-family: SpoqaHanSansNeo-Regular; padding-left: 130px;">아이디</label>
+        </div>
+          <!-- 비번 -->
+          <div class="input-box">
+              <input id="password" type="password" name="password" placeholder="비밀번호">
+              <label for="password" style="font-family: SpoqaHanSansNeo-Regular; padding-left: 130px;">비밀번호</label>
+          </div>
+
+          <!-- 로고 -->
 
 
+          <input style="font-family: GmarketSansMedium; font-size:9pt; top: 30px; border-bottom-width: 0px; margin-left: 250px;" type="submit" class="btn" value="LOGIN"/>
+
+        </form>
+        <div>
+
+        </div>
+
+
+        </div>
+
+
+        <!-- 버튼 -->
 
 
 
+    </form>
 
 
 </body>

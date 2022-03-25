@@ -1,0 +1,98 @@
+
+
+    .cen{
+        margin: 500px auto auto auto;
+        text-align: center;
+    }
+   .input-box{
+       position:relative;
+       margin:10px 0;
+    }
+
+    .input-box > input{
+        background:transparent;
+        border:none;
+        border-bottom: solid 1px rgb(206, 206, 206); padding:17px 0px 5px 0px;
+        /* 입력했을 때 글씨 크기  */
+        font-size:8pt; width:50%;
+    }
+
+    input::placeholder{
+        color:transparent;
+    }
+
+    input:placeholder-shown + label{
+        color:rgb(206, 206, 206);
+        /* id,pw 크기 */
+        font-size:10pt;
+        top:10px;
+    }
+
+    input:focus + label, label{
+        color:rgb(206, 206, 206);
+        font-size:10pt;
+        pointer-events: none;
+        position: absolute;
+        left:0px; top:0px;
+        transition: all 0.2s ease ;
+        -webkit-transition: all 0.2s ease;
+        -moz-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+    }
+    input:focus, input:not(:placeholder-shown){
+        border-bottom: solid 1px rgb(206, 206, 206);
+        outline:none;
+    }
+    .li{
+        float: left;
+
+    }
+    .li2{
+        float: right;
+    }
+    @font-face {
+          font-family: 'GmarketSansMedium';
+          src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+      }
+
+
+      @font-face {
+          font-family: 'SpoqaHanSansNeo-Regular';
+          src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;
+      }
+    .btn {
+        position:relative;
+        transform: translateX(-50%);
+        margin-bottom:3% ;
+        width:50%;
+        height:35px;
+        background: linear-gradient(125deg,#add9ff,#6A7BB6,#462e74);
+        background-position: left;
+        background-size: 200%;
+        color:white;
+        font-weight: bold;
+        border:none;
+        cursor:pointer;
+        transition: 0.4s;
+        display:inline;
+        border-radius: 3px;
+
+    }
+
+    .btn:hover {
+        background-position: right;
+    }
+
+
+    /* .hd{
+        position: absolute;
+        color: #F19065;
+        left: 62px;
+        top: 185px;
+        font-size:23pt;
+        font-family: yg-jalnan;
+    } */

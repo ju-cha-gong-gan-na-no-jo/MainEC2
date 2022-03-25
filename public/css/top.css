@@ -1,0 +1,21 @@
+.overlap-group1 {
+    align-items: flex-end;
+    background-color: #fff;
+    box-shadow: 0px 3px 6px 
+  #00000029;
+    margin: 0; padding: 0;
+    display: flex;
+    z-index: 1;
+    height: 50px;
+    position: fixed;
+    width: 100%;
+    justify-content: flex-end;
+
+
+  }
+
+  .x2 {
+    height: 35px;
+    width: 82px;
+    display: block; margin: 10px auto;
+  }

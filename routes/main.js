@@ -5,6 +5,13 @@ app.get('/', function (req, res) {
   res.send('Hello World!')
 });
 
+app.get('/top', function (req, res){
+  res.render('top')
+})
+
+app.get('/menu', function(req, res){
+  res.render('menu')
+})
 
 app.get('/payment', function (req, res) {
   res.render('payment');

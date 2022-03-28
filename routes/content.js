@@ -39,4 +39,53 @@ app.get('/real_time_status', function (req, res){
   });
 });
 
+//특정차량 정보조회
+// app.get('/specific_vehicle_data_inquiry', function(req,res){
+//   axios.post('http://3.36.211.38:3000/status/car/data/id',
+//   	{
+//   		car_number : req.body.car_number
+//   	}
+//   )
+//   .then(function (response) {
+//   	console.log(response)
+//     console.log(response.data)
+//     console.log(response.data.found_data)
+//     return res.redirect("/content/inquiry_find")
+//   })
+//   .catch(function (error) {
+//   	console.log(error);
+//   });
+//
+//   res.render('content/inquiry')
+// })
+
+//특정차량 정보조회
+app.get('/find_carnum', function(req,res){
+  res.render('content/inquiry')
+})
+
+//특정차랑 정보조회 form
+app.post('/specific_vehicle_data_inquiry', function(req,res){
+  axios.post('http://3.36.211.38:3000/status/car/data/id',
+  	{
+  		car_number : req.body.car_number
+  	}
+  )
+  .then(function (response) {
+  	console.log(response)
+    console.log(response.data)
+    console.log(response.data.found_data)
+    console.log(response.data.found_data[0]['CAR_NUM'])
+
+    res.render("content/inquiry_find", {'response' : response})
+
+  })
+  .catch(function (error) {
+  	console.log(error);
+  });
+
+
+})
+
+
 module.exports = app;

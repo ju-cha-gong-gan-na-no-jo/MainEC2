@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+  <h1>특정 차량 정보 결과</h1>
+  <table>
+      <th>차량번호</th>
+      <th>입차시간</th>
+      <th>출차시간</th>
+      <th>유형</th>
+
+      <% for(var i=0; i < response.data.found_data.length; i++){ %>
+          <tr>
+              <td><%= response.data.found_data[i]['CAR_NUM'] %></td>
+              <td><%= response.data.found_data[i]['IN_TIME'] %></td>
+              <td><%= response.data.found_data[i]['OUT_TIME'] %></td>
+              <td><%= response.data.found_data[i]['TYPE'] %></td>
+
+          </tr>
+           <% } %>
+
+  </table>
+
+</body>
+</html>

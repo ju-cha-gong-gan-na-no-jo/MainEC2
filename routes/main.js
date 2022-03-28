@@ -27,15 +27,15 @@ app.get('/payment', function (req, res) {
 //결제 결과 페이지
 app.post('/payment_result', function(req, res){
 
-  axios.post('http://3.36.211.38:3000/payment/pay/data/num',
+  axios.post('http://3.36.211.38:3000/payment/pay/pay',
     {
       car_number : req.body.car_number
     }
   )
   .then(function (response) {
-    console.log(response)
+    // console.log(response)
     console.log(response.data)
-    console.log(response.data.found_data)
+    console.log(response.data.payment)
     console.log(response.data.found_data[0]['CAR_NUM'])
 
     res.render('payment_result', {'response' : response})

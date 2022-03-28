@@ -85,6 +85,23 @@ app.post('/specific_vehicle_data_inquiry', function(req,res){
   });
 })
 
+//하루 총 출차된 차량수
+app.get('/current_departure', function(req,res){
+  axios.get('http://3.36.211.38:3000/status/car/space/now/all/today')
+  .then(function (response) {
+  	// console.log(response)
+    console.log(response.data)
+    console.log(response.data.park_setting)
+    console.log(response.data.park_setting['CAR_COUNT'])
+
+    res.render("content/current_departure", {'response' : response})
+
+  })
+  .catch(function (error) {
+  	console.log(error);
+  });
+})
+
 
 
 

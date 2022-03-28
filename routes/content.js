@@ -18,12 +18,13 @@ app.get('/real_time_remaining_seats', function (req, res){
   });
 });
 
+//실시간 주차현황
 app.get('/real_time_status', function (req, res){
   axios.get('http://3.36.211.38:3000/status/car/data/all')
   .then(data => {
     console.log(data.data.current_data)
-    // res.render('content/real_time_status', {'data' : data})
-    res.render('content/real_time_status')
+    res.render('content/real_time_status', {'data' : data})
+    // res.render('content/real_time_status')
   });
 });
 

@@ -22,7 +22,8 @@ app.get('/real_time_status', function (req, res){
   axios.get('http://3.36.211.38:3000/status/car/data/all')
   .then(data => {
     console.log(data.data.current_data)
-    res.render('content/real_time_status', {'data' : data})
+    // res.render('content/real_time_status', {'data' : data})
+    res.render('content/real_time_status')
   });
 });
 

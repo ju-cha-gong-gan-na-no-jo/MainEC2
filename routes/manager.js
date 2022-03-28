@@ -5,6 +5,7 @@ const axios = require("axios");
 const request = require('request');
 const CircularJSON = require('circular-json');
 const qs = require('qs');
+const session = require('express-session');
 //api  주소
 
 
@@ -13,7 +14,9 @@ const qs = require('qs');
 
 //관리자 메인
 app.get('/', function (req, res){
+    console.log(req.session)
     res.render('manager/index')
+
 
 });
 

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>특정 차량 결제 정보</h1>
+<p>차량번호 : <%=response.data.found_data[0]['CAR_NUM']%></p>
+<p>입차시간 : <%=response.data.found_data[0]['IN_TIME']%></p>
+<p>출차시간 : <%=response.data.found_data[0]['OUT_TIME']%></p>
+<p>할인 시간 : <%=response.data.found_data[0]['COUPON']%>시간</p>
+<p>결제 금액 : <%=response.data.found_data[0]['PAY_AMOUNT']%>원</p>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -72,9 +72,9 @@ app.post('/specific_vehicle_data_inquiry', function(req,res){
   	}
   )
   .then(function (response) {
-  	console.log(response)
+  	// console.log(response)
     console.log(response.data)
-    console.log(response.data.found_data)
+    // console.log(response.data.found_data)
     console.log(response.data.found_data[0]['CAR_NUM'])
 
     res.render("content/inquiry_find", {'response' : response})
@@ -83,9 +83,9 @@ app.post('/specific_vehicle_data_inquiry', function(req,res){
   .catch(function (error) {
   	console.log(error);
   });
-
-
 })
+
+
 
 
 module.exports = app;

@@ -4,17 +4,70 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/ct.css"/>
     <title>Document</title>
 
 
 
 </head>
 <body>
-  <h1>빌려줄공간</h1>
+
+  <!-- 차트 -->
+<div style="left: 400px;" class='wrap'>
+  <div class='container'>
+    <div class="chart doughnut1">
+      <div>
+      <span class="center">
+        <p style="margin-top: 40%;">
+          <%= data.data.park_setting['now_place']%> / <%= data.data.park_usenumber%>
+        </p>
+        </span>
+      <div>
+    </div>
+    <div class="x58"></div>
+<div class="x59"></div>
+  </div>
+
+  <!-- <button style="font-family: SpoqaHanSansNeo-Regular;" onClick=replay()>
+   RESET
+  </button> -->
+</div>
+
+<script>
+const chart1 = document.querySelector('.doughnut1');
+
+
+const makeChart = (percent, classname, color) => {
+  let i = 1;
+  let chartFn = setInterval(function() {
+    if (i < percent) {
+      colorFn(i, classname, color);
+      i++;
+    } else {
+      clearInterval(chartFn);
+    }
+  }, 10);
+}
+
+const colorFn = (i, classname, color) => {
+  classname.style.background = "conic-gradient(" + color + " 0% " + i + "%, #dedede " + i + "% 100%)";
+}
+
+
+makeChart(<%= data.data.car_now%>, chart1, '#1F3158');
+
+    </script>
+  <!-- <h1>빌려줄공간</h1>
   <p><%= data.data.park_usenumber%></p>
+  <p>현재 추차된 차량수</p>
+  <p><%= data.data.car_now%></p>
   <br>
   <h1>남은공간</h1>
-  <p><%= data.data.park_setting['now_place']%></p>
+  <p><%= data.data.park_setting['now_place']%></p> -->
+
+
+
+
 
 </body>
 </html>

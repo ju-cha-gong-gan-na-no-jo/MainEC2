@@ -27,7 +27,7 @@ app.get('/payment', function (req, res) {
 //결제 결과 페이지
 app.post('/payment_result', function(req, res){
 
-  axios.post('http://3.36.211.38:3000/payment/pay/pay',
+  axios.post('http://3.36.211.38:4000/payment/pay/pay',
     {
       car_number : req.body.car_number
     }

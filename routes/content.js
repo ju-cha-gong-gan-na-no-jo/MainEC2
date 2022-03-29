@@ -84,7 +84,7 @@ app.get('/current_departure', function(req,res){
 
 //현재 결제 총합
 app.get('/current_payment', function(req,res){
-  axios.get('http://3.36.211.38:3000/payment/payinfo/all/sum')
+  axios.get('http://3.36.211.38:4000/payment/payinfo/all/sum')
   .then(function (response) {
   	// console.log(response)
     console.log(response.data)

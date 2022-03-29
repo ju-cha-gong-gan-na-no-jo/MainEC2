@@ -40,26 +40,6 @@ app.get('/real_time_status', function (req, res){
 });
 
 //특정차량 정보조회
-// app.get('/specific_vehicle_data_inquiry', function(req,res){
-//   axios.post('http://3.36.211.38:3000/status/car/data/id',
-//   	{
-//   		car_number : req.body.car_number
-//   	}
-//   )
-//   .then(function (response) {
-//   	console.log(response)
-//     console.log(response.data)
-//     console.log(response.data.found_data)
-//     return res.redirect("/content/inquiry_find")
-//   })
-//   .catch(function (error) {
-//   	console.log(error);
-//   });
-//
-//   res.render('content/inquiry')
-// })
-
-//특정차량 정보조회
 app.get('/find_carnum', function(req,res){
   res.render('content/inquiry')
 })
@@ -95,6 +75,23 @@ app.get('/current_departure', function(req,res){
     console.log(response.data.park_setting['CAR_COUNT'])
 
     res.render("content/current_departure", {'response' : response})
+
+  })
+  .catch(function (error) {
+  	console.log(error);
+  });
+})
+
+//현재 결제 총합
+app.get('/current_payment', function(req,res){
+  axios.get('http://3.36.211.38:3000/payment/payinfo/all/sum')
+  .then(function (response) {
+  	// console.log(response)
+    console.log(response.data)
+    console.log(response.data.paymentInfo[0]['TOTAL'])
+    // console.log(response.data.park_setting['CAR_COUNT'])
+
+    res.render("content/current_payment", {'response' : response})
 
   })
   .catch(function (error) {

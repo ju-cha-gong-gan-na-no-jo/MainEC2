@@ -1,21 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
 <%-include('../top.ejs')%>
 <%-include('../menu.ejs')%>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-
+    <link rel="stylesheet" href="/css/manager_index.css"/>
 </head>
 <body>
+  <!-- 파이차트 -->
+  <section class="area">
 
+    <div class="pie_chart">
+      <iframe src="http://15.165.153.54:3000/content/real_time_remaining_seats">
+      </iframe>
+    </div>
 
+  <!-- 전체주차공간 현황 -->
 
+    <div>
+      <iframe src="http://15.165.153.54:3000/content/actual_parking_space">
+      </iframe>
+    </div>
 
-<h1>관리자 메인</h1>
+<!-- 실시간 주차현황 -->
 
-<p>오늘 출차된 차량수 : <%= %> </p>
+    <div>
+      <iframe src="http://15.165.153.54:3000/content/real_time_status">
+      </iframe>
+    </div>
+
+<!-- 오늘 출차된 차량 수 -->
+
+    <div>
+      <iframe src="http://15.165.153.54:3000/content/current_departure">
+      </iframe>
+    </div>
+
+  <!-- 오늘 누적 금액 -->
+
+    <div>
+      <iframe src="http://15.165.153.54:3000/content/current_payment">
+      </iframe>
+    </div>
+
+  </section>
+
+  <!-- 달력 -->
+  <div>
+    <iframe src="http://15.165.153.54:3000/content/calendar">
+    </iframe>
+  </div>
+  <!-- 메모 -->
 </body>
 </html>

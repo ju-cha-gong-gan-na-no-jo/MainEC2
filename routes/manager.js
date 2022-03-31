@@ -17,11 +17,7 @@ app.get('/', function (req, res){
     console.log(req.session)
     res.render('manager/index')
 
-
 });
-
-
-
 
 
 //주차현황

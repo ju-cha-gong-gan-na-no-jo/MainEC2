@@ -54,9 +54,30 @@ app.get('/login', function (req, res) {
   // res.redirect('/manager/index')
 });
 
+
+
 app.get('/join', function (req, res) {
   res.render('join');
 });
+
+
+app.post('/join_result', function(req,res){
+  axios.post('http://52.79.193.214:3000/user/create',
+    {
+      username : req.body.username,
+      email : req.body.email,
+      password : req.body.password
+    }
+  )
+  .then(function (response) {
+    res.send("<script>alert('회원가입에 성공했습니다.'); window.location.replace('http://15.165.153.54:3000/login');</script>")
+  })
+  .catch(function (error) {
+    console.log(error);
+    res.send("<script>alert('회원가입에 실패했습니다.'); window.location.replace('http://15.165.153.54:3000/join');</script>")
+  });
+});
+
 
 
 module.exports = app;

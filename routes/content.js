@@ -100,6 +100,12 @@ app.get('/current_payment', function(req,res){
 })
 
 
+//켈린더
+app.get('/calendar', function (req, res) {
+  res.render("content/calendar.ejs")
+});
+
+
 
 
 module.exports = app;

@@ -6,58 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<%-include('../top.ejs')%>
+<%-include('../menu.ejs')%>
 <body>
-<h1>관리자 주차 현황 페이지</h1>
-<a href="/manager/parking_status">
-  주차현황
-</a>
-  <hr>
-  <br>
 
-<a href="/manager/calculate">
-    정산
-</a>
-  <hr>
-  <br>
+  <!-- 파이차트 -->
+  <section class="area">
 
-<a href="/manager/statistics">
-    통계
-</a>
-    <br>
-  <a href="/manager/statistics">
-      유휴공간
-  </a>
-    <br>
-  <a href="/manager/profit">
-      수익관리
-  </a>
-    <br>
-  <hr>
-  <br>
 
-<a href="/manager/member">
-    등록
-</a>
-<br>
-  <a href="/manager/member">
-    입주민
-  </a>
-    <br>
-  <a href="/manager/visitor">
-    방문객
-  </a>
-    <br>
-  <a href="/manager/store">
-    상점
-  </a>
-    <br>
-  <hr>
-  <br>
+    <div class="remaining_seats">
+      <div class="pie_chart">
+        <iframe src="http://15.165.153.54:3000/content/real_time_remaining_seats">
+        </iframe>
+      </div>
 
-<a href="/manager/setting">
-    설정
-</a>
-  <hr>
+      <div>
+        <iframe src="http://15.165.153.54:3000/content/real_time_status">
+        </iframe>
+      </div>
+    </div>
+
+
+    <div>
+        <div>
+          <iframe src="http://15.165.153.54:3000/content/current_departure">
+          </iframe>
+        </div>
+
+      <!-- 오늘 누적 금액 -->
+
+        <div>
+          <iframe src="http://15.165.153.54:3000/content/current_payment">
+          </iframe>
+        </div>
+    </div>
+
+    <form form action="http://15.165.153.54:3000/content/specific_vehicle_data_inquiry" method="post">
+      <input type="text" id="car_number"  name="car_number" placeholder="차량번호" >
+      <input type="submit">
+    </form>
+
+
+    <!-- 실시간 주차현황 -->
+
+        <div>
+          <iframe src="http://15.165.153.54:3000/content/real_time_status">
+          </iframe>
+        </div>
+</section>
+
 
 
 

@@ -1,5 +1,12 @@
 .area{
-  margin-top : 20%;
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-top : 10%;
+  margin-left: 15%;
+  margin-right: 5%;
+}
+
+.remaining_seats{
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  width: 1000px;
 }

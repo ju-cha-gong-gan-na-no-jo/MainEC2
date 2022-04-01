@@ -48,19 +48,45 @@ app.post('/payment_result', function(req, res){
 
 })
 
+
+//로그인 페이지
 app.get('/login', function (req, res) {
   console.log(req.session)
   res.render('login');
   // res.redirect('/manager/index')
 });
 
+//로그인 결과
+app.post('/login_result', function(req, res){
+  axios.post('http://52.79.193.214:3000/user/auth',
+    {
+      username : req.body.username,
+      password : req.body.password
+    }
+  )
+  .then(function (error, response, body) {
+    console.log(response)
+    console.log(body)
+
+    if(error){
+      res.send("<script>alert('로그인에 실패했습니다.'); window.location.replace('http://15.165.153.54:3000/login');</script>")
+    }
+    res.send("<script>alert('로그인에 성공했습니다.'); window.location.replace('http://15.165.153.54:3000/manager/');</script>")
+  })
+  .catch(function (error) {
+    console.log(error);
+
+  });
+})
 
 
+//회원가입 페이지
 app.get('/join', function (req, res) {
   res.render('join');
 });
 
 
+//회원가입 결과
 app.post('/join_result', function(req,res){
   axios.post('http://52.79.193.214:3000/user/create',
     {
@@ -69,13 +95,31 @@ app.post('/join_result', function(req,res){
       password : req.body.password
     }
   )
-  .then(function (response) {
-    res.send("<script>alert('회원가입에 성공했습니다.'); window.location.replace('http://15.165.153.54:3000/login');</script>")
+  .then(function (error, response) {
+    if(error){
+      res.send("<script>alert('회원가입에 실패했습니다.'); window.location.replace('http://15.165.153.54:3000/join');</script>")
+    }
+
+      res.send("<script>alert('회원가입에 성공했습니다.'); window.location.replace('http://15.165.153.54:3000/login');</script>")
+
   })
   .catch(function (error) {
     console.log(error);
-    res.send("<script>alert('회원가입에 실패했습니다.'); window.location.replace('http://15.165.153.54:3000/join');</script>")
   });
+});
+
+
+app.get('/lcd', function(req,res){
+axios.get('http://3.36.211.38:3000/status/car/space/possible')
+.then(function (response) {
+  // console.log(response)
+  console.log(response.data)
+
+  res.send(response.data.park_setting)
+})
+.catch(function (error) {
+  console.log(error);
+});
 });
 
 

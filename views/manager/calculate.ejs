@@ -6,60 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<%-include('../top.ejs')%>
+<%-include('../menu.ejs')%>
 <body>
-<h1>관리자 정산 페이지</h1>
+<div>
+  <div>
+    <iframe src="http://15.165.153.54:3000/content/current_payment">
+    </iframe>
+  </div>
+</div>
 
-
-<a href="/manager/parking_status">
-  주차현황
-</a>
-  <hr>
-  <br>
-
-<a href="./calculate">
-    정산
-</a>
-  <hr>
-  <br>
-
-<a href="/manager/statistics">
-    통계
-</a>
-    <br>
-  <a href="/manager/statistics">
-      유휴공간
-  </a>
-    <br>
-  <a href="/manager/profit">
-      수익관리
-  </a>
-    <br>
-  <hr>
-  <br>
-
-<a href="/manager/member">
-    등록
-</a>
-<br>
-  <a href="/manager/member">
-    입주민
-  </a>
-    <br>
-  <a href="/manager/visitor">
-    방문객
-  </a>
-    <br>
-  <a href="/manager/store">
-    상점
-  </a>
-    <br>
-  <hr>
-  <br>
-
-<a href="/manager/setting">
-    설정
-</a>
-  <hr>
 
 
 

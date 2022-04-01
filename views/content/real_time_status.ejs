@@ -5,27 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/main.css"/>
+    <link rel="stylesheet" href="/css/pu.css"/>
 
 
 
 </head>
 <body>
-  <table>
+  <div class="x18">
+  <table id="keywords" cellspacing="0" cellpadding="0">
+    <thead>
+      <tr>
       <th>차량번호</th>
       <th>입차시간</th>
       <th>출차시간</th>
       <th>유형</th>
+    </tr>
+    </thead>
 
       <% for(var i=0; i < data.data.current_data.length; i++){ %>
           <tr>
-              <td><%= data.data.current_data[i]['CAR_NUM'] %></td>
-              <td><%= data.data.current_data[i]['IN_TIME'] %></td>
-              <td><%= data.data.current_data[i]['OUT_TIME'] %></td>
-              <td><%= data.data.current_data[i]['TYPE'] %></td>
+              <td class="lalign"><%= data.data.current_data[i]['CAR_NUM'] %></td>
+              <td class="lalign"><%= data.data.current_data[i]['IN_TIME'] %></td>
+              <td class="lalign"><%= data.data.current_data[i]['OUT_TIME'] %></td>
+              <td class="lalign"><%= data.data.current_data[i]['TYPE'] %></td>
 
           </tr>
            <% } %>
 
   </table>
+  </div>
 </body>
 </html>

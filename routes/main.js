@@ -16,6 +16,7 @@ app.get('/top', function (req, res){
 });
 
 app.get('/menu', function(req, res){
+  console.log(req.session)
   res.render('menu')
 })
 
@@ -64,17 +65,38 @@ app.post('/login_result', function(req, res){
       password : req.body.password
     }
   )
-  .then(function (error, response, body) {
-    console.log(response)
-    console.log(body)
+  .then(function (response) {
+    // if(!response){
+    //   return response.status(400).json({
+    //     status:"error",
+    //     error: "req body cannot be empty"
+    //   })
+    //   res.send("<script>alert('로그인에 실패했습니다.'); window.location.replace('http://15.165.153.54:3000/login');</script>")
+    // }
+    if(response){
 
-    if(error){
-      res.send("<script>alert('로그인에 실패했습니다.'); window.location.replace('http://15.165.153.54:3000/login');</script>")
+      console.log(response.data)
+      // // [ { ACCOUNT_NUM: 7, ACCOUNT_TYPE: '관리자' } ]
+      // // req.session.is_logined = true;
+      console.log(response.data[0]['ACCOUNT_NUM'])
+      req.session.num = response.data[0]['ACCOUNT_NUM'];
+      req.session.type = response.data[0]['ACCOUNT_TYPE'];
+      req.session.save(function(){
+        res.render('manager/setting', {
+          num : response.data[0]['ACCOUNT_NUM'],
+          type : response.data[0]['ACCOUNT_TYPE'],
+          is_logined : true
+        });
+      });
+
+      res.send("<script>alert('로그인에 성공했습니다.'); window.location.replace('http://15.165.153.54:3000/manager/setting');</script>")
+
     }
-    res.send("<script>alert('로그인에 성공했습니다.'); window.location.replace('http://15.165.153.54:3000/manager/');</script>")
+
   })
   .catch(function (error) {
     console.log(error);
+    res.send("<script>alert('로그인에 실패했습니다.'); window.location.replace('http://15.165.153.54:3000/login');</script>")
 
   });
 })
@@ -91,15 +113,14 @@ app.post('/join_result', function(req,res){
   axios.post('http://52.79.193.214:3000/user/create',
     {
       username : req.body.username,
-      email : req.body.email,
-      password : req.body.password
+      password : req.body.password,
+      account_type : req.body.account_type
     }
   )
-  .then(function (error, response) {
-    if(error){
-      res.send("<script>alert('회원가입에 실패했습니다.'); window.location.replace('http://15.165.153.54:3000/join');</script>")
+  .then(function (response) {
+    if(response){
+      res.send("<script>alert('회원가입에 성공했습니다.'); window.location.replace('http://15.165.153.54:3000/login');</script>")
     }
-
       res.send("<script>alert('회원가입에 성공했습니다.'); window.location.replace('http://15.165.153.54:3000/login');</script>")
 
   })

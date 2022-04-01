@@ -58,6 +58,8 @@ app.get('/store', function (req, res){
 
 // 관리자/등록/상점
 app.get('/setting', function (req, res){
+
+  console.log(req.session.num)
   res.render('manager/setting')
 })
 

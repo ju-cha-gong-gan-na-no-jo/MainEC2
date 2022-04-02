@@ -1,29 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+<%-include('../top.ejs')%>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
+    <link rel="stylesheet" href="/css/box.css"/>
+    <link rel="stylesheet" href="/css/sb.css"/>
+    <link rel="stylesheet" href="/css/pubox.css"/>
+    <link rel="stylesheet" href="/css/pu.css"/>
+    <link rel="stylesheet" href="/css/ct.css"/>
+    <link rel="stylesheet" href="/css/search.css"/>
+    <link rel="stylesheet" href="/js/search.js"/>
+    <link rel="stylesheet" href="/css/button.css"/>
+    <link rel="stylesheet" href="/js/mo.js"/>
+    <link rel="stylesheet" href="/css/num.css"/>
+    <link rel="stylesheet" href="/css/mo.css"/>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+
+    <script>  function myModal2(){
+          $('#myModal2').show();
+      }
+      //팝업 Close 기능
+      function close_pop2(flag) {
+          $('#myModal2').hide();
+      };
+    </script>
+
+
+
+
+  </head>
 <body>
-<h1>상점 메인페이지</h1>
+  <%-include('../menu_store.ejs')%>
+
+  <div>
+    <iframe src="http://15.165.153.54:3000/content/real_time_remaining_seats">
+    </iframe>
+  </div>
 
 
-<a href="/store/store_calculate">
-    정산
-</a>
-  <hr>
-  <br>
-
-<a href="/store/store_statistics">
-    통계
-</a>
-  <hr>
-  <br>
+  <div>
+    <iframe src="http://15.165.153.54:3000/content/real_time_status" style="border:none;">
+    </iframe>
+  </div>
 
 
+
+<div id="myModal2" class="modal">
+
+ <!-- Modal content -->
+       <div class="modal-content" style="text-align: center; padding-bottom: 20px;padding-left: 20px;width: 600px;height: 500px;">
+
+           <div style="margin-right: 15px; cursor:pointer; background-color: #ffffff00; text-align: right;padding-bottom: 10px; " onClick="close_pop2();">
+               <span class="pop_bt" style="font-family: 'GmarketSansMedium'; color: #000; font-size:13pt; " >
+                    X
+               </span>
+           </div>
+
+                <br><br><br>
+
+              <!-- Modal content -->
+              <!-- 모달 이미지 -->
+              <div>
+                 <img style=" display: block; margin: 10px auto;weight:50px; height:150px;" src="img/logo2.png" />
+               </div>
+           <div>
+           <br><br><br>
+ <a style="display: inline;  background: linear-gradient(to left, #629ECF, #735B92); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size:23px; font-weight: bolder;  font-family:  'GmarketSansMedium';">시간</a>
+           <br>  <br>  <br><br><br><br>
+           <a style="font-family:  'GmarketSansMedium'; font-size:15px;">쿠폰 개수 선택: &nbsp;</a>
+           <form style="display: inline;" name="해당 폼의 이름" action="값을 보낼 주소" method="post">
+               <input  class="num" type='number' name='userPhoneNumber' />
+           </form>
+       <br>  <br><br>  <br>
+           <form  style="display: inline; ">
+             <input style="margin-top: 20px;" onclick="myModal2();"   class="bu5" type='button' value='확인'/>
+           </form>
+           <form  style="display: inline; ">
+             <input style="margin-top: 20px; margin-left:10px;"  onclick="myModal2();"   class="bu5" type='button' value='취소'/>
+           </form>
+         </div>
+
+       </div>
+
+
+
+     </div>
+
+     <!-- 쿠폰버튼 -->
+   <form >
+     <input onclick="myModal2()" class="bu4" style="margin-top: 400px; float: left;  margin-left: 575px;"   type='button' value='쿠폰'/>
+   </form>
+
+</div>
 
 
 </body>
+
 </html>

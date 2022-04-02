@@ -11,6 +11,11 @@ app.get('/', function (req, res) {
   res.send('Hello World!')
 });
 
+//회원가입 페이지
+app.get('/redirect', function (req, res) {
+  res.render('redirect');
+});
+
 app.get('/top', function (req, res){
   res.render('top')
 });
@@ -18,6 +23,11 @@ app.get('/top', function (req, res){
 app.get('/menu', function(req, res){
   console.log(req.session)
   res.render('menu')
+})
+
+app.get('/menu_store', function(req, res){
+  console.log(req.session)
+  res.render('menu_store')
 })
 
 //결제 메인 페이지
@@ -66,32 +76,46 @@ app.post('/login_result', function(req, res){
     }
   )
   .then(function (response) {
-    // if(!response){
-    //   return response.status(400).json({
-    //     status:"error",
-    //     error: "req body cannot be empty"
-    //   })
-    //   res.send("<script>alert('로그인에 실패했습니다.'); window.location.replace('http://15.165.153.54:3000/login');</script>")
-    // }
-    if(response){
+
+    console.log(response.data)
+
+    if(response.data==='Invalid ID or Password!'){
+
+      console.log(response.data)
+      // res.send("<script>alert('로그인에 실패했습니다.'); window.location.replace('http://15.165.153.54:3000/login');</script>")
+      res.render('redirect', {
+        url : 'http://15.165.153.54:3000/login',
+        message : '로그인에 실패했습니다.'
+      })
+    }
+
+    // else if (response){
 
       console.log(response.data)
       // // [ { ACCOUNT_NUM: 7, ACCOUNT_TYPE: '관리자' } ]
-      // // req.session.is_logined = true;
+      req.session.is_logined = true;
       console.log(response.data[0]['ACCOUNT_NUM'])
       req.session.num = response.data[0]['ACCOUNT_NUM'];
       req.session.type = response.data[0]['ACCOUNT_TYPE'];
       req.session.save(function(){
-        res.render('manager/setting', {
+        res.render('redirect',  {
           num : response.data[0]['ACCOUNT_NUM'],
           type : response.data[0]['ACCOUNT_TYPE'],
-          is_logined : true
-        });
+          is_logined : true,
+          url : 'http://15.165.153.54:3000/manager/setting',
+          message : '로그인에 성공했습니다.'
+        },
+        // {url : 'http://15.165.153.54:3000/manager/setting'},
+        // {message : '로그인에 성공했습니다.'}
+
+      );
+
       });
 
-      res.send("<script>alert('로그인에 성공했습니다.'); window.location.replace('http://15.165.153.54:3000/manager/setting');</script>")
+// "<script>alert('로그인에 성공했습니다.'); window.location.replace('http://15.165.153.54:3000/manager/setting');</script>",
 
-    }
+
+      // }
 
   })
   .catch(function (error) {

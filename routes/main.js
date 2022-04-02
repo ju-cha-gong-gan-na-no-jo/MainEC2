@@ -13,6 +13,7 @@ app.get('/', function (req, res) {
 
 //회원가입 페이지
 app.get('/redirect', function (req, res) {
+  console.log(res.session)
   res.render('redirect');
 });
 
@@ -102,7 +103,7 @@ app.post('/login_result', function(req, res){
           num : response.data[0]['ACCOUNT_NUM'],
           type : response.data[0]['ACCOUNT_TYPE'],
           is_logined : true,
-          url : 'http://15.165.153.54:3000/manager/setting',
+          url : 'http://15.165.153.54:3000/manager/',
           message : '로그인에 성공했습니다.'
         },
         // {url : 'http://15.165.153.54:3000/manager/setting'},

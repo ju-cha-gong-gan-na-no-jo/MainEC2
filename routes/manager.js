@@ -14,8 +14,13 @@ const session = require('express-session');
 
 //관리자 메인
 app.get('/', function (req, res){
-    console.log(req.session)
-    res.render('manager/index')
+    console.log(req.session.num)
+    console.log(req.session.type)
+    res.render('manager/index', {
+      is_logined : req.session.is_logined,
+      num : req.session.num,
+      type : req.session.type
+    })
 
 });
 
@@ -59,7 +64,7 @@ app.get('/store', function (req, res){
 // 관리자/등록/상점
 app.get('/setting', function (req, res){
 
-  console.log(req.session.num)
+
   res.render('manager/setting')
 })
 

@@ -83,30 +83,42 @@ app.post('/login_result', function(req, res){
     if(response.data==='Invalid ID or Password!'){
 
       console.log(response.data)
-      // res.send("<script>alert('로그인에 실패했습니다.'); window.location.replace('http://15.165.153.54:3000/login');</script>")
+
       res.render('redirect', {
         url : 'http://15.165.153.54:3000/login',
         message : '로그인에 실패했습니다.'
       })
     }
 
-    // else if (response){
-
       console.log(response.data)
-      // // [ { ACCOUNT_NUM: 7, ACCOUNT_TYPE: '관리자' } ]
       req.session.is_logined = true;
       console.log(response.data[0]['ACCOUNT_NUM'])
+      console.log(response.data[0]['ACCOUNT_TYPE'])
       req.session.num = response.data[0]['ACCOUNT_NUM'];
       req.session.type = response.data[0]['ACCOUNT_TYPE'];
       req.session.save(function(){
+        if(response.data[0]['ACCOUNT_TYPE']==='관리자'){
+
         res.render('redirect',  {
           num : response.data[0]['ACCOUNT_NUM'],
           type : response.data[0]['ACCOUNT_TYPE'],
           is_logined : true,
           url : 'http://15.165.153.54:3000/manager/',
-          message : '로그인에 성공했습니다.'
+          message : '관리자 로그인에 성공했습니다.'
         }
       );
+    }else{
+      res.render('redirect',  {
+              num : response.data[0]['ACCOUNT_NUM'],
+              type : response.data[0]['ACCOUNT_TYPE'],
+              is_logined : true,
+              url : 'http://15.165.153.54:3000/store/',
+              message : '로그인에 성공했습니다.'
+            }
+          );
+    }
+
+
     });
   })
   .catch(function (error) {
@@ -158,7 +170,7 @@ app.post('/join_result', function(req,res){
   });
 });
 
-
+//파이로 전달하는 lcd정보값
 app.get('/lcd', function(req,res){
 axios.get('http://3.36.211.38:3000/status/car/space/possible')
 .then(function (response) {

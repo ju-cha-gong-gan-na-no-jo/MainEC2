@@ -130,8 +130,47 @@ app.get('/member_inquiry', function (req, res) {
 
 });
 
+//1회방문객 조회
+app.get('/guest_inquiry', function(req,res){
+  axios.get('http://52.79.193.214:3000/user/info/guest')
+  .then(function (response) {
+    // console.log(response)
+    console.log(response.data)
+    console.log(response.data[0]['NAME'] )
+    console.log(response.data[0]['VISIT_DATE'] )
+    // console.log(response.data.paymentInfo[0]['TOTAL'])
+    // console.log(response.data.park_setting['CAR_COUNT'])
 
+    res.render("content/guest_inquiry.ejs",
+      {'response' : response}
+    )
 
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+})
+
+//정기 방문객 조회
+app.get('/guest_inquiry', function(req,res){
+  axios.get('http://52.79.193.214:3000/user/info/book')
+  .then(function (response) {
+    // console.log(response)
+    console.log(response.data)
+    console.log(response.data[0]['NAME'] )
+    // console.log(response.data[0]['VISIT_DATE'] )
+    // console.log(response.data.paymentInfo[0]['TOTAL'])
+    // console.log(response.data.park_setting['CAR_COUNT'])
+
+    res.render("content/guest_inquiry.ejs",
+      {'response' : response}
+    )
+
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+})
 
 
 

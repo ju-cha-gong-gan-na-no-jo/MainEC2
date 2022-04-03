@@ -27,45 +27,77 @@ app.get('/', function (req, res){
 
 //주차현황
 app.get('/parking_status', function (req, res){
-  res.render('manager/parking_status')
+  res.render('manager/parking_status',  {
+    is_logined : req.session.is_logined,
+    num : req.session.num,
+    type : req.session.type
+  })
 })
 
 //정산
 app.get('/calculate', function (req, res){
-  res.render('manager/calculate')
+  res.render('manager/calculate',  {
+    is_logined : req.session.is_logined,
+    num : req.session.num,
+    type : req.session.type
+  })
 })
 
 // 관리자/통계/유휴공간(메인)
 app.get('/statistics', function (req, res){
-  res.render('manager/statistics')
+  res.render('manager/statistics',  {
+    is_logined : req.session.is_logined,
+    num : req.session.num,
+    type : req.session.type
+  })
 })
 
 
 // 관리자/통계/수익관리
 app.get('/profit', function (req, res){
-  res.render('manager/profit')
+  res.render('manager/profit',  {
+    is_logined : req.session.is_logined,
+    num : req.session.num,
+    type : req.session.type
+  })
 })
 
 // 관리자/등록/입주민
 app.get('/member', function (req, res){
-  res.render('manager/member')
+  res.render('manager/member',  {
+    is_logined : req.session.is_logined,
+    num : req.session.num,
+    type : req.session.type
+  })
 })
 
 // 관리자/등록/방문객
 app.get('/visitor', function (req, res){
-  res.render('manager/visitor')
+  res.render('manager/visitor',  {
+    is_logined : req.session.is_logined,
+    num : req.session.num,
+    type : req.session.type
+  })
 })
 
 // 관리자/등록/상점
 app.get('/store', function (req, res){
-  res.render('manager/store')
+  res.render('manager/store',  {
+    is_logined : req.session.is_logined,
+    num : req.session.num,
+    type : req.session.type
+  })
 })
 
 // 관리자/등록/상점
 app.get('/setting', function (req, res){
 
 
-  res.render('manager/setting')
+  res.render('manager/setting',  {
+    is_logined : req.session.is_logined,
+    num : req.session.num,
+    type : req.session.type
+  })
 })
 
 

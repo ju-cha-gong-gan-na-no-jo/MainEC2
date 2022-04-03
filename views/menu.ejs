@@ -12,8 +12,14 @@
 
     <div class="nav" >
         <ul class="parent">
+          <!-- <li> -->
             <img class="image" src="/img/my.png" />
-          <div class="logout">LOGOUT</div>
+            <from action="http://15.165.153.54:3000/logout" method="GET" class="logout">
+              <!-- <div class="logout">LOGOUT</div> -->
+              <input type="submit"/>
+            </from>
+          <!-- </li> -->
+
         <li ><a style="margin-top: 145px; height: 65px;" href="/manager/parking_status">
             <img class="image-1" src="/img/status.png" />
             <div class="text-1" style="left: 34px; margin-top: 55px;">주차현황</div></a></li>
@@ -51,5 +57,56 @@
         </ul>
 
       </div>
+
+
+
+
+      <!-- 메뉴 -->
+  <!-- <div class="nav"  >
+
+    <ul  class="parent">
+        <img class="image" src="/img/my.png" />
+      <div class="logout">LOGOUT</div>
+    <li style="width: 100px;"><a style="margin-top: 135px; width: 100px; height: 90px;" href="/manager/parking_status">
+      <img class="image-1" src="/img/status.png" />
+        <div class="text-1" style="left: 34px; margin-top: 55px;">주차현황</div></a></li>
+
+    <li style="width: 100px;"><a style="margin-top: 50px; width: 100px; height: 90px;" href="/manager/calculate">
+      <img class="image-1" src="/img/calculate.png" />
+        <div class="text-1" style="left: 42px; margin-top: 55px;">정산</div></a></li>
+
+    <li style="width: 100px;"><a style="margin-top: 50px; width: 100px; height: 90px;" href="/manager/statistics">
+      <img class="image-1" src="/img/statistics.png" />
+        <div class="text-1" style="left: 42px; margin-top: 55px;">통계</div></a>
+
+        <ul class="child">
+            <li><a href="/manager/statistics">유휴공간</a></li>
+            <li><a href="/manager/profit">수익관리</a></li>
+        </ul>
+
+
+    </li>
+
+    <li style="width: 100px;" ><a style="margin-top: 50px; width: 100px; height: 90px;" href="#">
+      <img class="image-1" src="/img/registration.png" />
+        <div class="text-1" style="left: 42px; margin-top: 55px;">등록</div></a>
+
+        <ul class="child">
+            <li><a href="/manager/member">입주민</a></li>
+            <li><a href="/manager/visitor">방문객</a></li>
+            <li><a href="/manager/store">상점</a></li>
+        </ul>
+
+    </li>
+
+    <li style="width: 100px;"><a style="margin-top: 50px; width: 100px; height: 90px;" href="#"> <img class="image-1" src="/img/setting.png" />
+        <div class="text-1" style="left: 42px; margin-top: 55px;">설정</div></a></li>
+
+
+    </ul>
+  </div> -->
+
+
+
 </body>
 </html>

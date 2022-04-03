@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
   res.send('Hello World!')
 });
 
-//회원가입 페이지
+//리다이렉트
 app.get('/redirect', function (req, res) {
   console.log(res.session)
   res.render('redirect');
@@ -105,19 +105,9 @@ app.post('/login_result', function(req, res){
           is_logined : true,
           url : 'http://15.165.153.54:3000/manager/',
           message : '로그인에 성공했습니다.'
-        },
-        // {url : 'http://15.165.153.54:3000/manager/setting'},
-        // {message : '로그인에 성공했습니다.'}
-
+        }
       );
-
-      });
-
-// "<script>alert('로그인에 성공했습니다.'); window.location.replace('http://15.165.153.54:3000/manager/setting');</script>",
-
-
-      // }
-
+    });
   })
   .catch(function (error) {
     console.log(error);
@@ -125,6 +115,20 @@ app.post('/login_result', function(req, res){
 
   });
 })
+
+
+//로그아웃
+app.get('/logout',function(req,res){
+
+  req.session.destroy(function(err){
+    req.session.num
+
+    res.render('redirect', {
+      url : 'http://15.165.153.54:3000/login',
+      message : '로그아웃 됐습니다.'
+    })
+  })
+});
 
 
 //회원가입 페이지

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/main.css"/>
+    <link rel="stylesheet" href="/css/pu.css"/>
+
+</head>
+<body>
+  <h1>입주민 정보조회</h1>
+
+
+  <table id="keywords" cellspacing="0" cellpadding="0">
+    <thead>
+      <tr>
+      <th>이름</th>
+      <th>동</th>
+      <th>호</th>
+      <th>핸드폰번호</th>
+      <th>비고</th>
+    </tr>
+    </thead>
+
+      <% for(var i=0; i < response.data.length; i++){ %>
+          <tr>
+              <td class="lalign"><%= response.data[i]['NAME'] %></td>
+              <td class="lalign"><%= response.data[i]['DONG'] %></td>
+              <td class="lalign"><%= response.data[i]['HO'] %></td>
+              <td class="lalign"><%= response.data[i]['PHONE_NUM'] %></td>
+              <td class="lalign"><%= response.data[i]['REMARK'] %></td>
+
+          </tr>
+           <% } %>
+
+  </table>
+
+</body>
+</html>

@@ -109,6 +109,28 @@ app.get('/calendar', function (req, res) {
 });
 
 
+//입주민조회
+app.get('/member_inquiry', function (req, res) {
+  axios.get('http://52.79.193.214:3000/user/info/member')
+  .then(function (response) {
+    // console.log(response)
+    console.log(response.data)
+    console.log(response.data[0]['NAME'] )
+    // console.log(response.data.paymentInfo[0]['TOTAL'])
+    // console.log(response.data.park_setting['CAR_COUNT'])
+
+    res.render("content/member_inquiry.ejs",
+      {'response' : response}
+    )
+
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+});
+
+
 
 
 

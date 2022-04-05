@@ -291,6 +291,36 @@ app.get('/settlement_customer', function(req,res){
   });
 });
 
+//정산 특정 차량을통한 조회form
+app.get('/settlement_carnum', function (req, res) {
+  res.render("content/settlement_carnum.ejs")
+});
+
+
+//정산 특정 차량 데이터 조회
+app.post('/settlement_carnum_re', function(req,res){
+  axios.post('http://3.36.211.38:4000/payment/pay/data/num',
+      {
+    		car_number : req.body.car_number
+    	})
+
+  .then(function (response) {
+    // console.log(response)
+    console.log(response.data.found_data)
+    // console.log(response.data[0]['NAME'] )
+    // console.log(response.data[0]['VISIT_DATE'] )
+    // console.log(response.data.paymentInfo[0]['TOTAL'])
+    // console.log(response.data.park_setting['CAR_COUNT'])
+
+    res.render("content/settlement_carnum_re.ejs",
+      {'response' : response}
+    )
+
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+});
 
 
 

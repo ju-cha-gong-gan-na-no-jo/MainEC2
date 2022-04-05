@@ -78,7 +78,7 @@
 			height: 100px;
 			border-radius: 50%;
 			background: #20A8D8;
-      margin-top: 500px;
+      margin-top: 10px;
 		}
 
   </style>
@@ -93,76 +93,23 @@ position: relative;">
 
     <img style=" display: block; margin: 10px auto;weight:100px; height:100px;" src="img/logo1.png" />
 
-<a style="display: block; background: linear-gradient(to left, #629ECF, #735B92); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size:20px; font-weight: bolder; text-align: center; font-family:  'GmarketSansMedium';">	QR코드를 카메라에 노출시켜 주세요.</a>
-  <div id="loadingMessage">
+<a style="display: block; background: linear-gradient(to left, #629ECF, #735B92); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size:20px; font-weight: bolder; text-align: center; font-family:  'GmarketSansMedium';">	QR코드를 인식해주세요.</a>
+  <!-- <div id="loadingMessage">
 
 						<br><br><br>
 						<a style="font-size:15px;  font-weight: bolder; font-family:  'SpoqaHanSansNeo-Regular;'">	🎥 비디오 스트림에 액세스 할 수 없습니다<br/>웹캠이 활성화되어 있는지 확인하십시오</a>
+</div> -->
+
+
+
+
+  <div>
+    <a href='http://15.165.153.54:3000/payment_QR_end'>
+<img src="/img/QRcode.png" width="600px">
+</a>
 </div>
-  <canvas id="canvas" hidden></canvas>
-  <div id="output" hidden>
-    <!-- <div id="outputMessage">No QR code detected.</div> -->
-    <div hidden><b>Data:</b> <span id="outputData"></span></div>
-  </div>
 
 
-
-  <script>
-    var video = document.createElement("video");
-    var canvasElement = document.getElementById("canvas");
-    var canvas = canvasElement.getContext("2d");
-    var loadingMessage = document.getElementById("loadingMessage");
-    var outputContainer = document.getElementById("output");
-    var outputMessage = document.getElementById("outputMessage");
-    var outputData = document.getElementById("outputData");
-
-    function drawLine(begin, end, color) {
-      canvas.beginPath();
-      canvas.moveTo(begin.x, begin.y);
-      canvas.lineTo(end.x, end.y);
-      canvas.lineWidth = 4;
-      canvas.strokeStyle = color;
-      canvas.stroke();
-    }
-
-    // Use facingMode: environment to attemt to get the front camera on phones
-    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(stream) {
-      video.srcObject = stream;
-      video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
-      video.play();
-      requestAnimationFrame(tick);
-    });
-
-    function tick() {
-      loadingMessage.innerText = "⌛ Loading video..."
-      if (video.readyState === video.HAVE_ENOUGH_DATA) {
-        loadingMessage.hidden = true;
-        canvasElement.hidden = false;
-        outputContainer.hidden = false;
-
-        canvasElement.height = video.videoHeight;
-        canvasElement.width = video.videoWidth;
-        canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
-        var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
-        var code = jsQR(imageData.data, imageData.width, imageData.height, {
-          inversionAttempts: "dontInvert",
-        });
-        if (code) {
-          drawLine(code.location.topLeftCorner, code.location.topRightCorner, "#FF3B58");
-          drawLine(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
-          drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
-          drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
-          outputMessage.hidden = true;
-          outputData.parentElement.hidden = false;
-          outputData.innerText = code.data;
-        } else {
-          outputMessage.hidden = false;
-          outputData.parentElement.hidden = true;
-        }
-      }
-      requestAnimationFrame(tick);
-    }
-  </script>
     <div id="contents" class="cc"/><div style=" margin-left: 550%; " class="cc"/>
 </body>
 

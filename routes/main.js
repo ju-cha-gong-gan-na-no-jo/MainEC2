@@ -184,6 +184,13 @@ app.get('/payment_QR', function(req,res){
 res.render('QR')
 })
 
+//QR결제
+app.get('/payment_QR_end', function(req,res){
+
+res.render('QR_end')
+})
+
+
 
 
 //파이로 전달하는 lcd정보값

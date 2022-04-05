@@ -5,16 +5,110 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<link rel="stylesheet" href="/css/box.css"/>
+<link rel="stylesheet" href="/css/sb.css"/>
+<link rel="stylesheet" href="/css/pubox.css"/>
+<link rel="stylesheet" href="/css/pu.css"/>
+<link rel="stylesheet" href="/css/day.css"/>
+<link rel="stylesheet" href="/css/search.css"/>
+<link rel="stylesheet" href="/js/search.js"/>
+<link rel="stylesheet" href="/js/day.js"/>
 </head>
 <%-include('../top.ejs')%>
-<%-include('../menu.ejs')%>
+<%-include('../setmenu.ejs')%>
 <body>
 <div>
-  <div>
-    <iframe src="http://15.165.153.54:3000/content/current_payment">
+  <div style="margin-top: 150px;width:285px; height:90px; background-color:#fff;   box-shadow: 0px 3px 6px #00000029;  z-index:1;margin-left: 1000px;">
+<div style="width:75px; height:75px; margin-left: 20px;  border-radius:50%; background:#D3D3D3; z-index:2;"/>
+  <img style="width:75px; height:75px;" src="/img/payment.png" />
+    <iframe style=" margin-top: -80px; margin-left: 80px; z-index:3;" src="http://15.165.153.54:3000/content/current_payment">
     </iframe>
   </div>
 </div>
+
+<div  style=" float: left; margin-left: 230px; margin-top: 70px;" class="style">
+                <select >
+                      <option > 선택 1  </option>
+                      <option selected> 선택 2 </option>
+                      <option> 선택 3 </option>
+                      <option> 선택 4 </option>
+                      <option> 선택 5 </option>
+                      <option> 선택 3 </option>
+                      <option> 선택 4 </option>
+                      <option> 선택 5 </option>
+                  </select>
+              </div>
+
+
+              <!-- 달력 -->
+
+                        <div class="day" style=" float: left; display: inline; margin-left: 10px; margin-top: 70px;">
+                                    <label  class="nativeDatePicker">
+                                      <input type="date" name="bday">
+                                      <span class="validity"></span>
+                                    </label>
+
+                                    <fieldset class="fallbackDatePicker" hidden>
+                                      <legend class="fallbackLabel">Enter your birthday:</legend>
+
+                                      <label>
+                                        Day:
+                                        <select name="day"></select>
+                                      </label>
+
+                                      <label>
+                                        Month:
+                                        <select name="month">
+                                          <option>January</option>
+                                          <option>February</option>
+                                          <option>March</option>
+                                          <option>April</option>
+                                          <option>May</option>
+                                          <option>June</option>
+                                          <option>July</option>
+                                          <option>August</option>
+                                          <option>September</option>
+                                          <option>October</option>
+                                          <option>November</option>
+                                          <option>December</option>
+                                        </select>
+                                      </label>
+
+                                      <label>
+                                        Year:
+                                        <select name="year"></select>
+                                      </label>
+                                    </fieldset>
+
+                        </div>
+
+
+
+                        <!-- 검색 -->
+
+<div style="float: right; width: 33%;" >
+                  <span style="float: right; display: inline;  margin-right: 120px; margin-top: 70px;   display: inline; " class='green_window'>
+                  <button type="button" class='search-bar' value="검색" onclick="myFunction()"><img src="/img/search.png" style="width: 30px;   height: 25px;"></button>
+                  <input id="text" type="text" class='input_text' name="search"  onkeydown="enterSearch()" style="margin-top: 5px; margin-left: 5px;"/>
+
+                  </span>
+</div>
+
+              <div style="float:right; width: 33%;" >
+                  <span style="float: right; display: inline; margin-top: 70px; margin-right: -115px;" class='green_window'>
+                  <button type="button" class='search-bar' value="검색" onclick="myFunction()"><img src="/img/search.png" style="width: 30px;   height: 25px;"></button>
+                  <input id="text" type="text" class='input_text' name="search"  onkeydown="enterSearch()" style="margin-top: 5px; margin-left: 5px;"/>
+                  </span>
+              </div>
+
+
+<div >
+  <iframe style="margin-top:25px; margin-left:230px; width: 1200px;  height:350px;" src="http://15.165.153.54:3000/content/settlement_all">
+  </iframe>
+</div>
+
+
+
 
 
 

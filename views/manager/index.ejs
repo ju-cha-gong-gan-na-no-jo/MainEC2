@@ -13,28 +13,29 @@
 </head>
 <body>
   <!-- 파이차트 -->
-  <section class="area">
+  <section  class="area">
 
 
-    <div class="remaining_seats">
-      <div class="pie_chart">
-        <iframe src="http://15.165.153.54:3000/content/real_time_remaining_seats">
+    <div style=" width: 1200px;" class="remaining_seats">
+      <div  class="pie_chart">
+        <iframe scrolling="no" frameBorder="0" style="margin-top: -35px; margin-left: 80px;width:350px; height:350px; " src="http://15.165.153.54:3000/content/real_time_remaining_seats">
         </iframe>
       </div>
 
   <!-- 전체주차공간 현황 -->
 
       <div>
-        <iframe src="http://15.165.153.54:3000/content/actual_parking_space">
+        <iframe scrolling="no" frameBorder="0" style="margin-left: 50px;margin-top:20px; width:350px; height:220px; " src="http://15.165.153.54:3000/content/actual_parking_space">
         </iframe>
       </div>
 
 <!-- 열림버튼 -->
-      <input type="button" class="x58">
+      <input   style="background:url(img/car.png)  center 100% no-repeat; background-color: #20A8D8; margin-left: 100px; margin-top: 20px; border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;" type="button" class="x58">
+
       <!-- <div class="x58"></div> -->
 
 <!-- 닫힘벋튼 -->
-      <input type="button" class="x59">
+      <input style="margin-top: 20px; border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;" type="button" class="x59">
       <!-- <div class="x59"></div> -->
 
   </div>
@@ -43,20 +44,15 @@
 
 
 
-<!-- 실시간 주차현황 -->
-
-    <div>
-      <iframe src="http://15.165.153.54:3000/content/real_time_status" style="border:none;">
-      </iframe>
-    </div>
 
 <!-- 오늘 하루 데이터 -->
 
 <!-- 오늘 출차된 차량 수 -->
 <div class="x57">
 <div class="remaining_seats">
-    <div>
-      <iframe src="http://15.165.153.54:3000/content/current_departure" >
+    <div style="width:100px; height:100px; margin-left: 50px; margin-top: 45px;  border-radius:50%; background:#D3D3D3;">
+      <img style="width:100px; height:100px;" src="img/car.png" />
+      <iframe scrolling="no" frameBorder="0" style="margin-top: -100px; margin-left: 250px;display: inline;" src="http://15.165.153.54:3000/content/current_departure" >
       </iframe>
     </div>
 
@@ -64,23 +60,33 @@
 
   <!-- 오늘 누적 금액 -->
 
-    <div>
-      <iframe src="http://15.165.153.54:3000/content/current_payment">
+    <div style="width:100px; height:100px; margin-top: 45px;margin-left: 450px;  border-radius:50%; background:#D3D3D3;">
+      <img style="width:100px; height:100px;" src="img/payment.png" />
+
+      <iframe scrolling="no" frameBorder="0" style="margin-top: -100px; margin-left: 250px;" src="http://15.165.153.54:3000/content/current_payment">
       </iframe>
     </div>
     </div>
 </div>
 
 
+<!-- 실시간 주차현황 -->
+
+    <div>
+      <iframe scrolling="no" frameBorder="0" style="margin-top:230px; width: 1210px;  height:300px;" src="http://15.165.153.54:3000/content/real_time_status" style="border:none;">
+      </iframe>
+    </div>
+
   <!-- 달력 -->
+
 <div class="remaining_seats">
-  <div>
-    <iframe src="http://15.165.153.54:3000/content/calendar" style="height: 600px;width: 720px;border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;">
+  <div class="x23">
+    <iframe src="http://15.165.153.54:3000/content/calendar" style="margin-top: 50px; height: 600px;width: 720px;border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;">
     </iframe>
   </div>
   <!-- 메모 -->
   <div>
-  <input type='text' class="x19"></input>
+  <input style="margin-top: 50px; margin-left:25px; border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;" type='text' class="x19"></input>
   </div>
 </div>
 

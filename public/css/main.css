@@ -163,7 +163,7 @@
   background-color: #fff;
   box-shadow: 0px 2px 5px
 #00000029;
-
+z-index: -100;
   /* left: 221px; */
   position: absolute;
   top: 60%%;

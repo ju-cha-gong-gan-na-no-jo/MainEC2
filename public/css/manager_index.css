@@ -10,3 +10,8 @@
   margin-bottom: 10px;
   width: 1000px;
 }
+
+.pay{
+  display: flex;
+  gap: 10px;
+}

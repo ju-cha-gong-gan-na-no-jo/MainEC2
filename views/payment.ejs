@@ -5,15 +5,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+
+
+<style>
+@font-face {
+        font-family: 'GmarketSansMedium';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+  ::-webkit-scrollbar{width: 8px; height: 8px;}
+  ::-webkit-scrollbar-track{background-color: #ffffff;}
+  ::-webkit-scrollbar-thumb{background-color: #D3D3D3; border-radius: 7px;}
+  .my-box {
+    width: 150px;
+    height: 30px;
+    border:1px solid;
+    /* padding:10px; */
+    box-shadow: 0px 2px 5px
+  #00000029;
+  border-radius: 15px;
+  padding-left: 100px;
+  padding-top: 0px;
+  }
+.box222{
+  background-color:#ccc;
+  box-shadow: 0px 2px 5px
+#00000029;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    width: 355px;
+    height: 40px;
+    border-radius: 15px;
+    color: #000;
+    font-family:  'GmarketSansMedium';
+    font-size:15px;
+    font-weight: initial ;
+     left:0; right:0; margin-left:auto; margin-right:auto;
+}
+</style>
+
+<!-- 링크 -->
+<link rel="stylesheet" href="css/menu.css"/>
+<link rel="stylesheet" href="css/box.css"/>
+<link rel="stylesheet" href="css/sb.css"/>
+<link rel="stylesheet" href="css/pubox.css"/>
+<link rel="stylesheet" href="css/pu.css"/>
+<link rel="stylesheet" href="css/num.css"/>
+<link rel="stylesheet" href="css/button.css"/>
+<link rel="stylesheet" href="css/search.css"/>
+<link rel="stylesheet" href="js/search.js"/>
+<link rel="stylesheet" href="js/day.js"/>
+
+
 </head>
 <body>
-<h1>결제 메인페이지</h1>
-<form form action="http://15.165.153.54:3000/payment_result" method="post">
-  <input type="text" id="car_number"  name="car_number" placeholder="차량번호" >
-  <input type="submit">
-</form>
 
-
+  <form form action="http://15.165.153.54:3000/payment_result" method="post">
+    <input type="text" id="car_number"  name="car_number" placeholder="차량번호" >
+    <input type="submit">
+  </form>
 
 
 

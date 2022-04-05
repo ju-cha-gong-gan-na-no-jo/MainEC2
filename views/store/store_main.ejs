@@ -38,13 +38,16 @@
   <%-include('../menu_store.ejs')%>
 
   <div>
-    <iframe src="http://15.165.153.54:3000/content/real_time_remaining_seats">
+    <iframe style="margin-top: 100px; margin-left: 640px;width:350px; height:350px;" src="http://15.165.153.54:3000/content/real_time_remaining_seats">
     </iframe>
   </div>
-
+  <form style="margin-top: 20px;margin-left:250px;" form action="http://15.165.153.54:3000/content/specific_vehicle_data_inquiry" method="post">
+    <input type="text" id="car_number"  name="car_number" placeholder="차량번호" >
+    <input type="submit">
+  </form>
 
   <div>
-    <iframe src="http://15.165.153.54:3000/content/real_time_status" style="border:none;">
+    <iframe style="margin-left: 221px;margin-top:15px; width: 1200px;  height:350px;"  src="http://15.165.153.54:3000/content/real_time_status" style="border:none;">
     </iframe>
   </div>
 
@@ -93,7 +96,7 @@
 
      <!-- 쿠폰버튼 -->
    <form >
-     <input onclick="myModal2()" class="bu4" style="margin-top: 400px; float: left;  margin-left: 575px;"   type='button' value='쿠폰'/>
+     <input onclick="myModal2()" class="bu4" style="margin-top: 30px; float: left;  margin-left: 575px;"   type='button' value='쿠폰'/>
    </form>
 
 </div>

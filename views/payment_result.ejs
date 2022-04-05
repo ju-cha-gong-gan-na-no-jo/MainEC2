@@ -5,14 +5,109 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+
+
+<style>
+@font-face {
+        font-family: 'GmarketSansMedium';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+  ::-webkit-scrollbar{width: 8px; height: 8px;}
+  ::-webkit-scrollbar-track{background-color: #ffffff;}
+  ::-webkit-scrollbar-thumb{background-color: #D3D3D3; border-radius: 7px;}
+  .my-box {
+    width: 150px;
+    height: 30px;
+    border:1px solid;
+    /* padding:10px; */
+    box-shadow: 0px 2px 5px
+  #00000029;
+  border-radius: 15px;
+  padding-left: 100px;
+  padding-top: 0px;
+  }
+.box222{
+  background-color:#ccc;
+  box-shadow: 0px 2px 5px
+#00000029;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    width: 355px;
+    height: 50px;
+    border-radius: 15px;
+    color: #000;
+    font-family:  'GmarketSansMedium';
+    font-size:15px;
+    font-weight: initial ;
+     left:0; right:0; margin-left:auto; margin-right:auto;
+}
+</style>
+
+<!-- 링크 -->
+<link rel="stylesheet" href="css/menu.css"/>
+<link rel="stylesheet" href="css/box.css"/>
+<link rel="stylesheet" href="css/sb.css"/>
+<link rel="stylesheet" href="css/pubox.css"/>
+<link rel="stylesheet" href="css/pu.css"/>
+<link rel="stylesheet" href="css/num.css"/>
+<link rel="stylesheet" href="css/manager_index.css"/>
+<link rel="stylesheet" href="css/button.css"/>
+<link rel="stylesheet" href="css/search.css"/>
+<link rel="stylesheet" href="js/search.js"/>
+<link rel="stylesheet" href="js/day.js"/>
+
+
 </head>
-<body>
-<h1>특정 차량 결제 정보</h1>
-<p>차량번호 : <%=response.data.found_data[0]['CAR_NUM']%></p>
-<p>입차시간 : <%=response.data.found_data[0]['IN_TIME']%></p>
-<p>출차시간 : <%=response.data.found_data[0]['OUT_TIME']%></p>
-<p>할인 시간 : <%=response.data.found_data[0]['COUPON']%>시간</p>
-<p>결제 금액 : <%=response.data.found_data[0]['PAY_AMOUNT']%>원</p>
+<body style="background-color: #f1f1f1;background-color: #f1f1f1;margin-top: 0px;margin-left: 0px;margin-right: 0px;padding-bottom: 0px;padding-top: 0px;padding-left: 0px;padding-right: 0px;">
+
+
+
+<div class="x189" >
+  <br><br><br><br>
+<a style="background: linear-gradient(to left, #629ECF, #735B92);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; font-size:23px; font-weight: bolder;  font-family:  'GmarketSansMedium';">결제</a>
+  <br><br>  <div>
+      <img style="text-align:center; display: block; margin: 10px auto;weight:50px; height:150px;" src="img/logo2.png" />
+    </div>
+<br><br><br><br><br><br>
+
+<div class="pay" >
+<div style="font-family:  'GmarketSansMedium';font-size:30px;margin-left: 30%;">차량번호 : &nbsp;</div>
+<div style="font-family:'GmarketSansMedium';font-size:30px;"> <%= response.data.payment[0]['car_num'] %> </div>
+</div>
+
+<br><br><br><br><br><br>
+
+<div class="pay" >
+<div style="font-family:  'GmarketSansMedium';font-size:15px;margin-left: 10%;">입차시간 : &nbsp;</div>
+<div style="font-family:'GmarketSansMedium';font-size:15px;"> <%= response.data.payment[0]['in_time'] %> </div>
+<div style="font-family:  'GmarketSansMedium';font-size:15px;margin-left: 15%;">출차시간 : &nbsp;</div>
+<div style="font-family:'GmarketSansMedium';font-size:15px;"> <%= response.data.payment[0]['out_time'] %> </div>
+</div>
+
+<br><br><br><br><br><br>
+
+
+
+  <!-- <div style="display: inline;" class="bu6"><a style="margin-left:20px; margin-right: 90px; font-family:  'GmarketSansMedium'; font-size:15px;">총 금액: </a></div> -->
+
+  <div  class="box222"><a style="line-height: 50px;"><%= response.data.payment[0]['payment'] %>원 </a>
+
+  </div>
+
+              <form style="margin-top: 30px; text-align: right; float: right;  display: inline;"  >
+                <input style="margin-right: 90px;" class="bu6" type='button' value='결제'/>
+                <input style="   margin-right: 30px; display: inline;" class="bu" type='button' />
+              </form>
+</div>
+
+
 
 
 </body>

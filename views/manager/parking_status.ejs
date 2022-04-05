@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
 </head>
 <%-include('../top.ejs')%>
 <%-include('../menu.ejs')%>
@@ -15,42 +16,49 @@
 
 
     <div class="remaining_seats">
-      <div class="pie_chart">
-        <iframe src="http://15.165.153.54:3000/content/real_time_remaining_seats">
+      <div  class="pie_chart">
+        <iframe style="margin-top: 100px; margin-left: 330px;width:350px; height:350px;"  src="http://15.165.153.54:3000/content/real_time_remaining_seats">
         </iframe>
       </div>
+
 
       <div>
-        <iframe src="http://15.165.153.54:3000/content/real_time_status">
+          <div style="margin-top:-280px;">
+            <iframe style="margin-left:1000px; height:80px;"  src="http://15.165.153.54:3000/content/current_departure">
+            </iframe>
+          </div>
+
+        <!-- 오늘 누적 금액 -->
+
+          <div >
+            <iframe style="margin-left:1000px; height:80px; margin-top:15px;" src="http://15.165.153.54:3000/content/current_payment">
+            </iframe>
+          </div>
+      </div>
+
+
+      <form style="margin-top: 100px;margin-left:480px;" form action="http://15.165.153.54:3000/content/specific_vehicle_data_inquiry" method="post">
+        <input type="text" id="car_number"  name="car_number" placeholder="차량번호" >
+        <input type="submit">
+      </form>
+
+
+      <div>
+        <iframe style="margin-left: 221px;margin-top:30px; width: 1200px;  height:350px;" src="http://15.165.153.54:3000/content/real_time_status">
         </iframe>
       </div>
     </div>
 
 
-    <div>
-        <div>
-          <iframe src="http://15.165.153.54:3000/content/current_departure">
-          </iframe>
-        </div>
 
-      <!-- 오늘 누적 금액 -->
 
-        <div>
-          <iframe src="http://15.165.153.54:3000/content/current_payment">
-          </iframe>
-        </div>
-    </div>
 
-    <form form action="http://15.165.153.54:3000/content/specific_vehicle_data_inquiry" method="post">
-      <input type="text" id="car_number"  name="car_number" placeholder="차량번호" >
-      <input type="submit">
-    </form>
 
 
     <!-- 실시간 주차현황 -->
 
         <div>
-          <iframe src="http://15.165.153.54:3000/content/real_time_status">
+          <iframe  src="http://15.165.153.54:3000/content/real_time_status">
           </iframe>
         </div>
 </section>

@@ -6,6 +6,7 @@ const request = require('request');
 const CircularJSON = require('circular-json');
 const qs = require('qs');
 const session = require('express-session');
+const  jsQR  =  require ( "jsqr" ) ;
 
 app.get('/', function (req, res) {
   res.send('Hello World!')
@@ -46,9 +47,9 @@ app.post('/payment_result', function(req, res){
   )
   .then(function (response) {
     // console.log(response)
+
     console.log(response.data)
-    console.log(response.data.payment)
-    console.log(response.data.found_data[0]['CAR_NUM'])
+    console.log(response.data.payment[0]['CAR_NUM'])
 
     res.render('payment_result', {'response' : response})
 
@@ -159,16 +160,31 @@ app.post('/join_result', function(req,res){
     }
   )
   .then(function (response) {
-    if(response){
-      res.send("<script>alert('회원가입에 성공했습니다.'); window.location.replace('http://15.165.153.54:3000/login');</script>")
-    }
-      res.send("<script>alert('회원가입에 성공했습니다.'); window.location.replace('http://15.165.153.54:3000/login');</script>")
-
+    if(response)
+    res.render('redirect',  {
+                  url : 'http://15.165.153.54:3000/login',
+                  message : '회원가입에 성공했습니다.'
+                }
+              );
   })
   .catch(function (error) {
     console.log(error);
+    res.render('redirect',  {
+                  url : 'http://15.165.153.54:3000/join',
+                  message : '회원가입에 실패했습니다.'
+                }
+              );
   });
 });
+
+
+//QR결제
+app.get('/payment_QR', function(req,res){
+
+res.render('QR')
+})
+
+
 
 //파이로 전달하는 lcd정보값
 app.get('/lcd', function(req,res){
@@ -183,6 +199,7 @@ axios.get('http://3.36.211.38:3000/status/car/space/possible')
   console.log(error);
 });
 });
+
 
 
 

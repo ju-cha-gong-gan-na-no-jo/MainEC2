@@ -8,8 +8,11 @@
 
 </head>
 <body>
-  <h1><%=response.data.paymentInfo[0]['TOTAL'] %>원</h1>
-
+  <h1>상점 </h1>
+<form form action="http://15.165.153.54:3000/content/settlement_specific_store_re" method="post">
+  <input type="text" id="sto_name"  name="sto_name" placeholder="상점이름" >
+  <input type="submit">
+</form>
 
 </body>
 </html>

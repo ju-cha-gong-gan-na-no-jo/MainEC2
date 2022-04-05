@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/main.css"/>
+    <link rel="stylesheet" href="/css/pu.css"/>
+
+
+
+</head>
+<body>
+  <div class="x18" style="left: 0px">
+  <table id="keywords" cellspacing="0" cellpadding="0">
+    <thead>
+      <tr>
+      <th>차량번호</th>
+      <th>유형</th>
+      <th>입차</th>
+      <th>출차</th>
+      <th>주차시간</th>
+      <th>금액</th>
+      <th>상점</th>
+      <th>비고</th>
+    </tr>
+
+    </thead>
+
+      <% for(var i=0; i < response.data.paymentInfo.length; i++){ %>
+          <tr>
+              <td class="lalign"><%= response.data.paymentInfo[i]['CAR_NUM'] %></td>
+              <td class="lalign"><%= response.data.paymentInfo[i]['MEMBER_TYPE'] %></td>
+              <td class="lalign"><%= response.data.paymentInfo[i]['IN_TIME'] %></td>
+              <td class="lalign"><%= response.data.paymentInfo[i]['OUT_TIME'] %></td>
+              <td class="lalign"><%= response.data.paymentInfo[i]['PARK_TIME'] %></td>
+              <td class="lalign"><%= response.data.paymentInfo[i]['PAY_AMOUNT'] %></td>
+              <td class="lalign"><%= response.data.paymentInfo[i]['STORE_NAME'] %></td>
+              <td class="lalign"><%= response.data.paymentInfo[i]['MEMBER_TYPE'] %></td>
+
+          </tr>
+           <% } %>
+
+  </table>
+  </div>
+</body>
+</html>

@@ -152,7 +152,7 @@ app.get('/guest_inquiry', function(req,res){
 })
 
 //정기 방문객 조회
-app.get('/guest_inquiry', function(req,res){
+app.get('/book_inquiry', function(req,res){
   axios.get('http://52.79.193.214:3000/user/info/book')
   .then(function (response) {
     // console.log(response)
@@ -162,7 +162,7 @@ app.get('/guest_inquiry', function(req,res){
     // console.log(response.data.paymentInfo[0]['TOTAL'])
     // console.log(response.data.park_setting['CAR_COUNT'])
 
-    res.render("content/guest_inquiry.ejs",
+    res.render("content/book_inquiry.ejs",
       {'response' : response}
     )
 
@@ -171,6 +171,130 @@ app.get('/guest_inquiry', function(req,res){
     console.log(error);
   });
 })
+
+
+//상점 조회
+app.get('/store_inquiry', function(req,res){
+  axios.get('http://52.79.193.214:3000/user/info/store')
+  .then(function (response) {
+    // console.log(response)
+    console.log(response.data)
+    console.log(response.data[0]['NAME'] )
+    // console.log(response.data[0]['VISIT_DATE'] )
+    // console.log(response.data.paymentInfo[0]['TOTAL'])
+    // console.log(response.data.park_setting['CAR_COUNT'])
+
+    res.render("content/store_inquiry.ejs",
+      {'response' : response}
+    )
+
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+});
+
+//정산페이지 전체 조회
+app.get('/settlement_all', function(req,res){
+  axios.get('http://3.36.211.38:4000/payment/payinfo/all')
+
+  .then(function (response) {
+    // console.log(response)
+    console.log(response.data)
+    // console.log(response.data[0]['NAME'] )
+    // console.log(response.data[0]['VISIT_DATE'] )
+    // console.log(response.data.paymentInfo[0]['TOTAL'])
+    // console.log(response.data.park_setting['CAR_COUNT'])
+
+    res.render("content/settlement_all.ejs",
+      {'response' : response}
+    )
+
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+});
+
+//정산 상점 데이터 조회
+app.get('/settlement_store', function(req,res){
+  axios.get('http://3.36.211.38:4000/payment/payinfo/sto')
+
+  .then(function (response) {
+    // console.log(response)
+    console.log(response.data)
+    // console.log(response.data[0]['NAME'] )
+    // console.log(response.data[0]['VISIT_DATE'] )
+
+    // console.log(response.data.park_setting['CAR_COUNT'])
+    res.render("content/settlement_store.ejs",
+      {'response' : response}
+    )
+
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+});
+
+//정산 특정 삼점 조회form
+app.get('/settlement_specific_store', function (req, res) {
+  res.render("content/settlement_specific_store.ejs")
+});
+
+
+//정산 특정상점 데이터 조회
+app.post('/settlement_specific_store_re', function(req,res){
+  axios.post('http://3.36.211.38:4000/payment/payinfo/sto/name',
+      {
+    		sto_name : req.body.sto_name
+    	})
+
+  .then(function (response) {
+    // console.log(response)
+    console.log(response.data)
+    // console.log(response.data[0]['NAME'] )
+    // console.log(response.data[0]['VISIT_DATE'] )
+    // console.log(response.data.paymentInfo[0]['TOTAL'])
+    // console.log(response.data.park_setting['CAR_COUNT'])
+
+    res.render("content/settlement_specific_store_re.ejs",
+      {'response' : response}
+    )
+
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+});
+
+
+//정산 고객 데이터 조회
+app.get('/settlement_customer', function(req,res){
+  axios.get('http://3.36.211.38:4000/payment/payinfo/cus')
+
+  .then(function (response) {
+    // console.log(response)
+    console.log(response.data)
+    // console.log(response.data[0]['NAME'] )
+    // console.log(response.data[0]['VISIT_DATE'] )
+    // console.log(response.data.paymentInfo[0]['TOTAL'])
+    // console.log(response.data.park_setting['CAR_COUNT'])
+
+    res.render("content/settlement_customer.ejs",
+      {'response' : response}
+    )
+
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+});
+
+
+
+
+
 
 
 

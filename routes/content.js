@@ -6,6 +6,7 @@ const request = require('request');
 const CircularJSON = require('circular-json');
 const qs = require('qs');
 const session = require('express-session');
+const mysql = require("mysql");
 
 
 //실시간 사용자에 빌려주는 공간

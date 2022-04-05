@@ -29,7 +29,9 @@ var restful = require('./routes/main.js');
 var manager = require('./routes/manager.js');
 var store = require('./routes/store.js');
 var content = require('./routes/content.js');
+var statistics = require('./routes/statistics.js')
 
+app.use('/statistics', statistics)
 app.use('/store', store);
 app.use('/manager', manager);
 app.use('/', restful);

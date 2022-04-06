@@ -323,8 +323,111 @@ app.post('/settlement_carnum_re', function(req,res){
   });
 });
 
+//###########################################################################################################################################################################################################
+//통계 유휴공간
+app.get('/statistical_space', function(req,res){
+  axios.get('http://15.165.153.54:3000/statistics/statistics_Idle_space')
+
+  .then(function (response) {
+    // console.log(response)
+    console.log(response.data[0][0]['30-count(*)'])
+    console.log(response.data[1][0]['30-count(*)'])
+    console.log(response.data[2][0]['30-count(*)'])
+    // console.log(response.data[0]['NAME'] )
+    // console.log(response.data[0]['VISIT_DATE'] )
+    // console.log(response.data.paymentInfo[0]['TOTAL'])
+    // console.log(response.data.park_setting['CAR_COUNT'])
+
+    res.render("content/statistical_space.ejs",
+      {'response' : response}
+    )
+
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+});
+
+//통계 유휴공간 그래프 표
+app.get('/statistical_space_table', function(req,res){
+  axios.get('http://15.165.153.54:3000/statistics/statistics_Idle_space')
+
+  .then(function (response) {
+    // console.log(response)
+    console.log(response.data[0][0]['30-count(*)'])
+    console.log(response.data[1][0]['30-count(*)'])
+    console.log(response.data[2][0]['30-count(*)'])
+    // console.log(response.data[0]['NAME'] )
+    // console.log(response.data[0]['VISIT_DATE'] )
+    // console.log(response.data.paymentInfo[0]['TOTAL'])
+    // console.log(response.data.park_setting['CAR_COUNT'])
+
+    res.render("content/statistical_space_table.ejs",
+      {'response' : response}
+    )
+
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+});
+
+//통계 유휴공간 표
+app.get('/statistical_space_analysis', function (req, res) {
+  res.render("content/statistical_space_analysis.ejs")
+});
 
 
+//통계 수익
+app.get('/statistical_earning', function(req,res){
+  axios.get('http://15.165.153.54:3000/statistics/stattistics_earning')
+
+  .then(function (response) {
+    // console.log(response)
+    console.log(response.data)
+    console.log(response.data[0]['대수'])
+    // console.log(response.data[0]['NAME'] )
+    // console.log(response.data[0]['VISIT_DATE'] )
+    // console.log(response.data.paymentInfo[0]['TOTAL'])
+    // console.log(response.data.park_setting['CAR_COUNT'])
+
+    res.render("content/statistical_earning.ejs",
+      {'response' : response}
+    )
+
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+});
+
+//통계 수익 그래프 표
+app.get('/statistical_earning_table', function(req,res){
+  axios.get('http://15.165.153.54:3000/statistics/stattistics_earning')
+
+  .then(function (response) {
+    // console.log(response)
+    console.log(response.data)
+    console.log(response.data[0]['대수'])
+    // console.log(response.data[0]['NAME'] )
+    // console.log(response.data[0]['VISIT_DATE'] )
+    // console.log(response.data.paymentInfo[0]['TOTAL'])
+    // console.log(response.data.park_setting['CAR_COUNT'])
+
+    res.render("content/statistical_earning_table.ejs",
+      {'response' : response}
+    )
+
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+});
+
+//통계 수익 표
+app.get('/statistical_earning_analysis', function (req, res) {
+  res.render("content/statistical_earning_analysis.ejs")
+});
 
 
 

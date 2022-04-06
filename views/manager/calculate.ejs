@@ -13,36 +13,48 @@
 <link rel="stylesheet" href="/css/search.css"/>
 <link rel="stylesheet" href="/js/search.js"/>
 <link rel="stylesheet" href="/js/day.js"/>
+<link rel="stylesheet" href="/css/manager_index.css"/>
+
+<style>
+  ::-webkit-scrollbar{width: 8px; height: 8px;}
+  ::-webkit-scrollbar-track{background-color: #ffffff;}
+  ::-webkit-scrollbar-thumb{background-color: #D3D3D3; border-radius: 7px;}
+
+
+</style>
+
+
+
 </head>
 <%-include('../top.ejs')%>
 <%-include('../setmenu.ejs')%>
 <body>
+  <div class="remaining_seats">
 <div>
-  <div style="margin-top: 150px;width:285px; height:90px; background-color:#fff;   box-shadow: 0px 3px 6px #00000029;  z-index:1;margin-left: 1000px;">
-<div style="width:75px; height:75px; margin-left: 20px;  border-radius:50%; background:#D3D3D3; z-index:2;"/>
-  <img style="width:75px; height:75px;" src="/img/payment.png" />
-    <iframe style=" margin-top: -80px; margin-left: 80px; z-index:3;" src="http://15.165.153.54:3000/content/current_payment">
+  <div style="margin-top: 150px;width:285px; height:80px; background-color:#fff;   box-shadow: 0px 3px 6px #00000029;  z-index:1;margin-left: 1000px;">
+    <div style="width:75px; height:75px; margin-left: 20px;  border-radius:50%; background:#D3D3D3; z-index:2;"/>
+    <img style="width:75px; height:75px;" src="/img/payment.png" />
+    <iframe scrolling="no" frameBorder="0" style=" margin-top: -80px; margin-left: 80px; z-index:3;" src="http://15.165.153.54:3000/content/current_payment">
     </iframe>
   </div>
 </div>
 
-<div  style=" float: left; margin-left: 230px; margin-top: 70px;" class="style">
-                <select >
-                      <option > 선택 1  </option>
-                      <option selected> 선택 2 </option>
-                      <option> 선택 3 </option>
-                      <option> 선택 4 </option>
-                      <option> 선택 5 </option>
-                      <option> 선택 3 </option>
-                      <option> 선택 4 </option>
-                      <option> 선택 5 </option>
+
+<div class="cal" style=" margin-top: 100px;">
+<!-- 셀렉트박스 -->
+              <div class="cal2" style="margin-left: 18%;">
+                <select style="border-radius: 15px;">
+                      <option> 전체  </option>
+                      <option> 상점 </option>
+                      <option> 개인 </option>
+
                   </select>
               </div>
 
 
               <!-- 달력 -->
 
-                        <div class="day" style=" float: left; display: inline; margin-left: 10px; margin-top: 70px;">
+                        <div class="cal2" style="margin-left: 1%;">
                                     <label  class="nativeDatePicker">
                                       <input type="date" name="bday">
                                       <span class="validity"></span>
@@ -86,27 +98,34 @@
 
                         <!-- 검색 -->
 
-<div style="float: right; width: 33%;" >
-                  <span style="float: right; display: inline;  margin-right: 120px; margin-top: 70px;   display: inline; " class='green_window'>
-                  <button type="button" class='search-bar' value="검색" onclick="myFunction()"><img src="/img/search.png" style="width: 30px;   height: 25px;"></button>
-                  <input id="text" type="text" class='input_text' name="search"  onkeydown="enterSearch()" style="margin-top: 5px; margin-left: 5px;"/>
+                        <div class="cal2" style="margin-left: 20%;">
+                          <span class='green_window'>
+                              <button type="button" class='search-bar' value="검색" onclick="myFunction()"><img src="/img/search.png" style="width: 30px;   height: 25px;"></button>
+                            <input id="text" style="margin-left: 20px;margin-top: 3px; border:none;" type="text" name="search"  onkeydown="enterSearch()" />
 
-                  </span>
-</div>
-
-              <div style="float:right; width: 33%;" >
-                  <span style="float: right; display: inline; margin-top: 70px; margin-right: -115px;" class='green_window'>
-                  <button type="button" class='search-bar' value="검색" onclick="myFunction()"><img src="/img/search.png" style="width: 30px;   height: 25px;"></button>
-                  <input id="text" type="text" class='input_text' name="search"  onkeydown="enterSearch()" style="margin-top: 5px; margin-left: 5px;"/>
-                  </span>
-              </div>
+                          </span>
+                        </div>
 
 
-<div >
-  <iframe style="margin-top:25px; margin-left:230px; width: 1200px;  height:350px;" src="http://15.165.153.54:3000/content/settlement_all">
+
+
+                        <!-- 검색 -->
+
+                        <div class="cal2" style="margin-left: 1%;">
+                          <span class='green_window'>
+                              <button type="button" class='search-bar' value="검색" onclick="myFunction()"><img src="/img/search.png" style="width: 30px;   height: 25px;"></button>
+                            <input id="text" style="margin-left: 20px;margin-top: 3px; border:none;" type="text" name="search"  onkeydown="enterSearch()" />
+
+                          </span>
+                        </div>
+
+
+<div>
+  <iframe scrolling="no" frameBorder="0" style="margin-top:25px; margin-left:230px; width: 1200px;  height:350px;" src="http://15.165.153.54:3000/content/settlement_all">
   </iframe>
 </div>
 
+</div>
 
 
 

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+</head>
+<body>
+
+  <div>
+    <canvas id="myChart"></canvas>
+  </div>
+
+  <script>
+
+    const labels = [
+  '00:00',
+  '01:00',
+  '02:00',
+  '03:00',
+  '04:00',
+  '05:00',
+  '06:00',
+  '07:00',
+  '08:00',
+  '09:00',
+  '10:00',
+  '11:00',
+  '12:00',
+  '13:00',
+  '14:00',
+  '15:00',
+  '16:00',
+  '17:00',
+  '18:00',
+  '19:00',
+  '20:00',
+  '21:00',
+  '22:00',
+  '23:00',
+
+
+];
+
+const data = {
+  labels: labels,
+  datasets: [{
+    label: '시간별 유휴공간',
+    backgroundColor: '#5f74a0',
+    borderColor: '#5f74a0',
+    data: [
+    <%=response.data[0][0]['30-count(*)']%>,
+    <%=response.data[1][0]['30-count(*)']%>,
+    <%=response.data[2][0]['30-count(*)']%>,
+    <%=response.data[3][0]['30-count(*)']%>,
+    <%=response.data[4][0]['30-count(*)']%>,
+    <%=response.data[5][0]['30-count(*)']%>,
+    <%=response.data[6][0]['30-count(*)']%>,
+    <%=response.data[7][0]['30-count(*)']%>,
+    <%=response.data[8][0]['30-count(*)']%>,
+    <%=response.data[9][0]['30-count(*)']%>,
+    <%=response.data[10][0]['30-count(*)']%>,
+    <%=response.data[11][0]['30-count(*)']%>,
+    <%=response.data[12][0]['30-count(*)']%>,
+    <%=response.data[13][0]['30-count(*)']%>,
+    <%=response.data[14][0]['30-count(*)']%>,
+    <%=response.data[15][0]['30-count(*)']%>,
+    <%=response.data[16][0]['30-count(*)']%>,
+    <%=response.data[17][0]['30-count(*)']%>,
+    <%=response.data[18][0]['30-count(*)']%>,
+    <%=response.data[19][0]['30-count(*)']%>,
+    <%=response.data[20][0]['30-count(*)']%>,
+    <%=response.data[21][0]['30-count(*)']%>,
+    <%=response.data[22][0]['30-count(*)']%>,
+    <%=response.data[23][0]['30-count(*)']%>
+    ],
+  }]
+};
+
+const config = {
+  type: 'line',
+  data: data,
+  options: {}
+};
+
+const myChart = new Chart(
+  document.getElementById('myChart'),
+  config
+);
+
+
+  </script>
+
+</body>
+</html>

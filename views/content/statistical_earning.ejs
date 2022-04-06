@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+<style>
+::-webkit-scrollbar{width: 8px; height: 8px;}
+::-webkit-scrollbar-track{background-color: #ffffff;}
+::-webkit-scrollbar-thumb{background-color: #D3D3D3; border-radius: 7px;}
+</style>
+</head>
+<body>
+
+  <div>
+    <canvas id="myChart"></canvas>
+  </div>
+
+  <script>
+
+    const labels = [
+'3월1일',
+'3월2일',
+'3월3일',
+'3월4일',
+'3월5일'
+
+
+];
+
+const data = {
+  labels: labels,
+  datasets: [{
+    label: '수익',
+    backgroundColor: '#5f74a0',
+    borderColor: '#5f74a0',
+    data: [
+    <%=response.data[0]['돈']%>,
+    100000,
+    50000,
+    70000,
+    60000
+
+    ],
+  }]
+};
+
+const config = {
+  type: 'line',
+  data: data,
+  options: {}
+};
+
+const myChart = new Chart(
+  document.getElementById('myChart'),
+  config
+);
+
+
+  </script>
+
+</body>
+</html>

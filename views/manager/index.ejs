@@ -9,6 +9,23 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/manager_index.css"/>
     <link rel="stylesheet" href="/css/main.css"/>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+
+    <style>
+  ::-webkit-scrollbar{width: 8px; height: 8px;}
+  ::-webkit-scrollbar-track{background-color: #ffffff;}
+  ::-webkit-scrollbar-thumb{background-color: #D3D3D3; border-radius: 7px;}
+</style>
+
+    <script>  function myModal2(){
+          $('#myModal2').show();
+      }
+      //팝업 Close 기능
+      function close_pop2(flag) {
+          $('#myModal2').hide();
+      };
+    </script>
 
 </head>
 <body>
@@ -29,15 +46,17 @@
         </iframe>
       </div>
 
+
+
 <!-- 열림버튼 -->
-  <img style="margin-left: 963px; margin-top: 30px; width:80px; height:80px; position:absolute;" src="img/crossing_gate_o.png" />
-      <input   style=" margin-left: 100px; margin-top: 20px; border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;" type="button" class="x58">
+  <img style="margin-left: 963px; margin-top: 30px; width:80px; height:80px; position:absolute;" src="/img/crossing_gate_o.png" />
+      <input   style=" margin-left: 100px; margin-top: 20px; border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;" type="button" onclick="myModal()" class="x58">
 
       <!-- <div class="x58"></div> -->
 
 <!-- 닫힘벋튼 -->
-<img style="margin-left: 1078px; margin-top: 40px; width:80px; height:80px; position:absolute;" src="img/crossing_gate_c.png" />
-      <input style="margin-top: 20px; border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;" type="button" class="x59">
+<img style="margin-left: 1078px; margin-top: 40px; width:80px; height:80px; position:absolute;" src="/img/crossing_gate_c.png" />
+      <input style="margin-top: 20px; border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;" type="button" onclick="myModal()" class="x59">
       <!-- <div class="x59"></div> -->
 
   </div>
@@ -53,7 +72,7 @@
 <div class="x57">
 <div class="remaining_seats">
     <div style="width:100px; height:100px; margin-left: 50px; margin-top: 45px;  border-radius:50%; background:#D3D3D3;">
-      <img style="width:100px; height:100px;" src="img/car.png" />
+      <img style="width:100px; height:100px;" src="/img/car.png" />
       <iframe scrolling="no" frameBorder="0" style="margin-top: -100px; margin-left: 250px;display: inline;" src="http://15.165.153.54:3000/content/current_departure" >
       </iframe>
     </div>
@@ -63,7 +82,7 @@
   <!-- 오늘 누적 금액 -->
 
     <div style="width:100px; height:100px; margin-top: 45px;margin-left: 450px;  border-radius:50%; background:#D3D3D3;">
-      <img style="width:100px; height:100px;" src="img/payment.png" />
+      <img style="width:100px; height:100px;" src="/img/payment.png" />
 
       <iframe scrolling="no" frameBorder="0" style="margin-top: -100px; margin-left: 250px;" src="http://15.165.153.54:3000/content/current_payment">
       </iframe>
@@ -74,8 +93,10 @@
 
 <!-- 실시간 주차현황 -->
 
-    <div>
-      <iframe scrolling="no" frameBorder="0" style="margin-top:230px; width: 1210px;  height:300px;" src="http://15.165.153.54:3000/content/real_time_status" style="border:none;">
+    <div >
+      <iframe scrolling="no" frameBorder="0" style="margin-top:230px; width: 1210px;  height:300px; ::-webkit-scrollbar{width: 8px; height: 8px;}
+      ::-webkit-scrollbar-track{background-color: #ffffff;}
+      ::-webkit-scrollbar-thumb{background-color: #D3D3D3; border-radius: 7px;}" src="http://15.165.153.54:3000/content/real_time_status" style="border:none;">
       </iframe>
     </div>
 

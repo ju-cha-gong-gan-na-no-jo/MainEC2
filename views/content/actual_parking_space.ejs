@@ -6,16 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <style>
+      @font-face {
+        font-family: 'GmarketSansMedium';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+
 
 
 </head>
 <body>
+  
+  <h3 style="color:#1F3158">전체 공간</h3>
+  <h1 style="color:#1F3158"> <%= data.data.park_setting['TOTAL_SPACE']%></h1>
 
-  <h2>전체 공간</h2>
-  <p><%= data.data.park_setting['TOTAL_SPACE']%></p>
-
-  <h2>주차된 공간</h2>
-  <p><%= data.data.park_setting['현재 전체 주차 대수']%></p>
+  <h3 style="color:#1F3158">주차된 공간</h3>
+  <h1 style="color:#1F3158"><%= data.data.park_setting['현재 전체 주차 대수']%></h1>
 
 </body>
 </html>

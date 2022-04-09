@@ -12,9 +12,21 @@
   ::-webkit-scrollbar-thumb{background-color: #D3D3D3; border-radius: 7px;}
 </style>
 
+<link rel="stylesheet" href="/css/box.css"/>
+<link rel="stylesheet" href="/css/sb.css"/>
+<link rel="stylesheet" href="/css/pubox.css"/>
+<link rel="stylesheet" href="/css/pu.css"/>
+<link rel="stylesheet" href="/css/ct.css"/>
+<link rel="stylesheet" href="/css/search.css"/>
+<link rel="stylesheet" href="/js/search.js"/>
+<link rel="stylesheet" href="/css/button.css"/>
+<link rel="stylesheet" href="/js/mo.js"/>
+<link rel="stylesheet" href="/css/num.css"/>
+<link rel="stylesheet" href="/css/mo.css"/>
+
 </head>
 <%-include('../top.ejs')%>
-<%-include('../menu.ejs')%>
+<%-include('../setmenu.ejs')%>
 <body>
 
   <!-- 파이차트 -->
@@ -26,38 +38,66 @@
         <iframe scrolling="no" frameBorder="0" style="margin-top: 100px; margin-left: 330px;width:350px; height:350px;"  src="http://15.165.153.54:3000/content/real_time_remaining_seats">
         </iframe>
       </div>
-
-
+      <div style="margin-top:-270px;">
       <div>
-          <!-- <div style="margin-top:-280px;"> -->
-          <div style="margin-top:-280px; margin-left: 1000px; width:285px; height:90px; background-color:#fff;   box-shadow: 0px 3px 6px #00000029;  z-index:1;">
-            <div style="width:75px; height:75px; margin-left: 20px;  border-radius:50%; background:#D3D3D3; z-index:2;"/>
-              <img style="width:75px; height:75px;" src="/img/car.png" />
-            <iframe style="margin-left:90px; height:80px;"  src="http://15.165.153.54:3000/content/current_departure">
-            </iframe>
-            
-          </div>
-
-        <!-- 오늘 누적 금액 -->
-            <div>
-              <!-- <div style="margin-left: 900px; width:100px; height:100px; margin-top: 45px;margin-left: 450px;  border-radius:50%; background:#D3D3D3; z-index:2;"/> -->
-          <div style="margin-top: 35px;width:285px; height:90px; background-color:#fff;   box-shadow: 0px 3px 6px #00000029;  z-index:1;">
-<div style="width:75px; height:75px; margin-left: 20px;  border-radius:50%; background:#D3D3D3; z-index:2;"/>
-  <img style="width:75px; height:75px;" src="/img/payment.png" />
-            <iframe style="margin-left:90px; height:80px; " src="http://15.165.153.54:3000/content/current_payment">
-            </iframe>
-          </div>
+        <div style="width:285px; height:80px; background-color:#fff;   box-shadow: 0px 3px 6px #00000029;  z-index:1;margin-left: 1000px;">
+          <!-- <div style="width:75px; height:75px; margin-left: 20px;  border-radius:50%; background:#D3D3D3; z-index:2;"/> -->
+          <img style="border-radius:50%; background:#D3D3D3; z-index:2; width:75px; height:75px;margin-top: 3px;margin-left: 20px;" src="/img/car.png" />
+          <iframe scrolling="no" frameBorder="0" style=" margin-top: -85px; margin-left:100px; z-index:3;" src="http://15.165.153.54:3000/content/current_departure">
+          </iframe>
+        </div>
       </div>
 
+      <div>
+        <div style="margin-top: 20px;width:285px; height:80px; background-color:#fff;   box-shadow: 0px 3px 6px #00000029;  z-index:1;margin-left: 1000px;">
+          <!-- <div style="width:75px; height:75px; margin-left: 20px;  border-radius:50%; background:#D3D3D3; z-index:2;"/> -->
+          <img style="border-radius:50%; background:#D3D3D3; z-index:2; width:75px; height:75px;margin-top: 3px;margin-left: 20px;" src="/img/payment.png" />
+          <iframe scrolling="no" frameBorder="0" style=" margin-top: -85px; margin-left: 100px; z-index:3;" src="http://15.165.153.54:3000/content/current_payment">
+          </iframe>
 
-      <form style=" margin-left: -730px; margin-top: 100px;" form action="http://15.165.153.54:3000/content/specific_vehicle_data_inquiry" method="post">
+        </div>
+      </div>
+    </div>
+    </div>
+      <div>
+
+          <!-- <div style="margin-top:-280px; margin-left: 1000px; width:285px; height:90px; background-color:#fff;   box-shadow: 0px 3px 6px #00000029;  z-index:1;">
+            <iframe style="margin-left:90px; height:80px; z-index:3;"  src="http://15.165.153.54:3000/content/current_departure">
+            </iframe>
+
+            <div style="width:75px; height:75px; margin-left: 20px;  border-radius:50%; background:#D3D3D3; z-index:2;"/>
+              <img style="width:75px; height:75px;" src="/img/car.png" />
+
+
+          </div>
+
+            <div>
+
+
+          <div style="margin-top: 35px;width:285px; height:90px; background-color:#fff;   box-shadow: 0px 3px 6px #00000029;  z-index:1;">
+
+            <iframe style="margin-left:90px; height:80px; " src="http://15.165.153.54:3000/content/current_payment">
+            </iframe>
+<div style="width:75px; height:75px; border-radius:50%; background:#D3D3D3; z-index:2;"/>
+  <img style="width:75px; height:75px;" src="/img/payment.png" />
+
+          </div>
+      </div> -->
+
+
+      <!-- <form style=" margin-left: 265px; margin-top: 100px;" form action="http://15.165.153.54:3000/content/specific_vehicle_data_inquiry" method="post">
         <input type="text" id="car_number"  name="car_number" placeholder="차량번호" >
         <input type="submit">
-      </form>
+      </form> -->
+
+      <span class='green_window' style="margin-left: 250px; margin-top: 100px;">
+        <button type="button" class='search-bar' value="검색" onclick="myFunction()"><img src="/img/search.png" style="width: 30px;   height: 25px;"></button>
+        <!-- <input id="text" style="margin-left: 20px;margin-top: 3px; border:none;" type="text" name="search"  onkeydown="enterSearch()" /> -->
+      </span>
 
 
       <div>
-        <iframe style="margin-left: -760px; margin-top:30px; width: 1200px;  height:350px;" src="http://15.165.153.54:3000/content/real_time_status">
+        <iframe scrolling="no" frameBorder="0" style="margin-left: 245px; margin-top:30px; width: 1200px;  height:350px;" src="http://15.165.153.54:3000/content/real_time_status">
         </iframe>
       </div>
     </div>
@@ -70,10 +110,10 @@
 
     <!-- 실시간 주차현황 -->
 
-        <div>
+        <!-- <div>
           <iframe  src="http://15.165.153.54:3000/content/real_time_status">
           </iframe>
-        </div>
+        </div> -->
 </section>
 
 

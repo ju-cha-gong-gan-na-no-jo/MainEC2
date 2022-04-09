@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="/css/main.css"/>
     <link rel="stylesheet" href="/css/pu.css"/>
 
+    <script>
+      function select(){
+        document.getElementById('click').style.backgroundColor="gray"
+      }
+    </script>
+
     <style>
   ::-webkit-scrollbar{width: 8px; height: 8px;}
   ::-webkit-scrollbar-track{background-color: #ffffff;}
@@ -32,11 +38,11 @@
     </thead>
 
       <% for(var i=0; i < data.data.current_data.length; i++){ %>
-          <tr>
-              <td class="lalign"><%= data.data.current_data[i]['CAR_NUM'] %></td>
-              <td class="lalign"><%= data.data.current_data[i]['IN_TIME'] %></td>
-              <td class="lalign"><%= data.data.current_data[i]['OUT_TIME'] %></td>
-              <td class="lalign"><%= data.data.current_data[i]['TYPE'] %></td>
+          <tr  id="click" onclick="select()">
+              <td class="lalign" ><%= data.data.current_data[i]['CAR_NUM'] %></td>
+              <td class="lalign" ><%= data.data.current_data[i]['IN_TIME'] %></td>
+              <td class="lalign" ><%= data.data.current_data[i]['OUT_TIME'] %></td>
+              <td class="lalign" ><%= data.data.current_data[i]['TYPE'] %></td>
 
           </tr>
            <% } %>

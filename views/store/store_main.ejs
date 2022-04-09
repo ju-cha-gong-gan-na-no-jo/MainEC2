@@ -28,7 +28,13 @@
       function close_pop2(flag) {
           $('#myModal2').hide();
       };
+
+      function cupone_resulte(){
+        alert("쿠폰등록이 완료 됐습니다.")
+      }
     </script>
+
+
 
 
 
@@ -38,16 +44,22 @@
   <%-include('../menu_store.ejs')%>
 
   <div>
-    <iframe style="margin-top: 100px; margin-left: 640px;width:350px; height:350px;" src="http://15.165.153.54:3000/content/real_time_remaining_seats">
+    <iframe scrolling="no" frameBorder="0" style="margin-top: 100px; margin-left: 640px;width:350px; height:350px;" src="http://15.165.153.54:3000/content/real_time_remaining_seats">
     </iframe>
   </div>
-  <form style="margin-top: 20px;margin-left:250px;" form action="http://15.165.153.54:3000/content/specific_vehicle_data_inquiry" method="post">
+  <!-- <form style="margin-top: 20px;margin-left:250px;" form action="http://15.165.153.54:3000/content/specific_vehicle_data_inquiry" method="post">
     <input type="text" id="car_number"  name="car_number" placeholder="차량번호" >
-    <input type="submit">
-  </form>
+    <input type="submit" value="검색">
+  </form> -->
+  <form action="http://15.165.153.54:3000/content/specific_vehicle_data_inquiry" method="post"></form>
+  <span class='green_window' style="margin-left: 250px;">
+    <button type="button" class='search-bar' value="검색" onclick="myFunction()"><img src="/img/search.png" style="width: 30px;   height: 25px;"></button>
+    <!-- <input id="text" style="margin-left: 20px;margin-top: 3px; border:none;" type="text" name="search"  onkeydown="enterSearch()" /> -->
+  </span>
+</form>
 
   <div>
-    <iframe style="margin-left: 221px;margin-top:15px; width: 1200px;  height:350px;"  src="http://15.165.153.54:3000/content/real_time_status" style="border:none;">
+    <iframe scrolling="no" frameBorder="0" style="margin-left: 221px;margin-top:15px; width: 1200px;  height:350px;"  src="http://15.165.153.54:3000/content/real_time_status" style="border:none;">
     </iframe>
   </div>
 
@@ -56,7 +68,7 @@
 <div id="myModal2" class="modal">
 
  <!-- Modal content -->
-       <div class="modal-content" style="text-align: center; padding-bottom: 20px;padding-left: 20px;width: 600px;height: 500px;">
+       <div class="modal-content" style="margin-top: 80px; padding-top: 20px;padding-right: 20px; text-align: center; padding-bottom: 20px;padding-left: 20px;width: 600px;height: 550px;">
 
            <div style="margin-right: 15px; cursor:pointer; background-color: #ffffff00; text-align: right;padding-bottom: 10px; " onClick="close_pop2();">
                <span class="pop_bt" style="font-family: 'GmarketSansMedium'; color: #000; font-size:13pt; " >
@@ -68,12 +80,12 @@
 
               <!-- Modal content -->
               <!-- 모달 이미지 -->
-              <div>
-                 <img style=" display: block; margin: 10px auto;weight:50px; height:150px;" src="img/logo2.png" />
+              <div >
+                 <img style=" height: 200px;width: 400px; display: block; margin: 10px auto;" src="/img/66버5968.jpg" />
                </div>
            <div>
            <br><br><br>
- <a style="display: inline;  background: linear-gradient(to left, #629ECF, #735B92); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size:23px; font-weight: bolder;  font-family:  'GmarketSansMedium';">시간</a>
+ <a style="display: inline;  background: linear-gradient(to left, #629ECF, #735B92); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size:23px; font-weight: bolder;  font-family:  'GmarketSansMedium';">시간 : 90분</a>
            <br>  <br>  <br><br><br><br>
            <a style="font-family:  'GmarketSansMedium'; font-size:15px;">쿠폰 개수 선택: &nbsp;</a>
            <form style="display: inline;" name="해당 폼의 이름" action="값을 보낼 주소" method="post">
@@ -81,7 +93,7 @@
            </form>
        <br>  <br><br>  <br>
            <form  style="display: inline; ">
-             <input style="margin-top: 20px;" onclick="myModal2();"   class="bu5" type='button' value='확인'/>
+             <input style="margin-top: 20px;" onclick="cupone_resulte()"  id="cupone" class="bu5" type='button' value='확인'/>
            </form>
            <form  style="display: inline; ">
              <input style="margin-top: 20px; margin-left:10px;"  onclick="myModal2();"   class="bu5" type='button' value='취소'/>

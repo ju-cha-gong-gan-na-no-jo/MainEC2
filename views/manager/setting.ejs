@@ -17,6 +17,13 @@
     <link rel="stylesheet" href="/js/search.js"/>
     <link rel="stylesheet" href="/js/day.js"/>
 </head>
+<script>
+function set(){
+       
+  alert("설정이 완료됐습니다.")
+
+}
+</script>
 <%-include('../top.ejs')%>
 <%-include('../setmenu.ejs')%>
 <body>
@@ -25,7 +32,7 @@
     <br><br><br><br>
   <a style="background: linear-gradient(to left, #629ECF, #735B92);
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent; font-size:23px; font-weight: bolder;  font-family:  'GmarketSansMedium';">SETING</a>
+      -webkit-text-fill-color: transparent; font-size:23px; font-weight: bolder;  font-family:  'GmarketSansMedium';">SETTING</a>
 
   <br><br>
   <a style="font-family:  'GmarketSansMedium'; font-size:15px;">주차공간: &nbsp;</a>
@@ -67,8 +74,8 @@
         <a style=" font-family:  'GmarketSansMedium'; text-align: right; font-size:15px;">초기화 </a>
     <br><br><br><br>
 
-                <form style="display: inline; ">
-                  <input style="margin-top: 20px;   " class="bu2" type='button' value='수정'/>
+                <form style="display: inline; " onclick="set()">
+                  <input style="margin-top: 20px;   " class="bu2"  type='button' value='설정'/>
                 </form>
 
 

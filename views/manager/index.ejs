@@ -25,12 +25,20 @@
       function close_pop2(flag) {
           $('#myModal2').hide();
       };
+
+
+
+      function 호출(){
+       
+       alert("호출!")
+     
+     }
     </script>
 
 </head>
 <body>
   <!-- 파이차트 -->
-  <section  class="area">
+  <section  class="area" onclick="호출()">
 
 
     <div style=" width: 1200px;" class="remaining_seats">
@@ -49,16 +57,20 @@
 
 
 <!-- 열림버튼 -->
+
+      <input   style=" margin-left: 100px; margin-top: 20px; border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px; padding-top: 80px; font-family:  'GmarketSansMedium';color: #fff; font-size: 20px; " type="button" onclick="myModal()" class="x58"value="열림">
+
   <img style="margin-left: 963px; margin-top: 30px; width:80px; height:80px; position:absolute;" src="/img/crossing_gate_o.png" />
-      <input   style=" margin-left: 100px; margin-top: 20px; border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;" type="button" onclick="myModal()" class="x58">
-
+  <!-- <a style="color: #fff; margin-top: 135px;font-size:20px; width: 50px;font-weight: bolder;  font-family:  'GmarketSansMedium';display:inline;">	열림</a> -->
       <!-- <div class="x58"></div> -->
-
+</input>
 <!-- 닫힘벋튼 -->
-<img style="margin-left: 1078px; margin-top: 40px; width:80px; height:80px; position:absolute;" src="/img/crossing_gate_c.png" />
-      <input style="margin-top: 20px; border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;" type="button" onclick="myModal()" class="x59">
+<!-- <img style="margin-left: 1078px; margin-top: 40px; width:80px; height:80px; position:absolute;" src="/img/crossing_gate_c.png" /> -->
+      <input style="margin-top: 20px; border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px; font-family:  'GmarketSansMedium';color: #fff; font-size: 20px; padding-top: 80px;" type="button" onclick="myModal()" class="x59"  value="닫힘">
       <!-- <div class="x59"></div> -->
-
+      <img style="margin-left: 1078px; margin-top: 40px; width:80px; height:80px; position:absolute;" src="/img/crossing_gate_c.png" />
+        <!-- <a style="color: #fff; margin-top: 135px;font-size:20px; width: 50px;font-weight: bolder; font-family:  'GmarketSansMedium'; display:inline;">	닫힘</a> -->
+</input>
   </div>
 
 
@@ -103,7 +115,7 @@
   <!-- 달력 -->
 
 <div class="remaining_seats">
-  <div class="x23"  style="margin-top: 23px;">
+  <div class="x23"  style="z-index:-100; margin-top: 23px;">
     <iframe src="http://15.165.153.54:3000/content/calendar" style="margin-top: 10px; height: 600px;width: 720px;border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;">
     </iframe>
   </div>

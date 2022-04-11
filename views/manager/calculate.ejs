@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/css/sb.css"/>
 <link rel="stylesheet" href="/css/pubox.css"/>
 <link rel="stylesheet" href="/css/pu.css"/>
-<link rel="stylesheet" href="/css/day.css"/>
+
 <link rel="stylesheet" href="/css/search.css"/>
 <link rel="stylesheet" href="/js/search.js"/>
 <link rel="stylesheet" href="/js/day.js"/>
@@ -23,6 +23,12 @@
 
 </style>
 
+<script>
+function goURL2(url)
+{
+targetURL.location.href=url;
+}
+</script>
 
 
 
@@ -44,67 +50,23 @@
 <div class="cal" style=" margin-top: 300px;">
 <!-- 셀렉트박스 -->
               <div class="cal2" style="margin-left: -1050px;">
-                <select style="border-radius: 15px;">
-                      <option> 전체  </option>
-                      <option> <a href="http://15.165.153.54:3000/content/settlement_store" target="iframe_target">상점</a></option>
-                      <option> 개인 </option>
+                <select style="border-radius: 15px;" onChange="javascript:goURL2(this.value);">
+                      <option value="http://15.165.153.54:3000/content/settlement_all"> 전체  </option>
+                      <option value='http://15.165.153.54:3000/content/settlement_store'> 상점 </option>
+                      <option value="http://15.165.153.54:3000/content/settlement_customer"> 개인 </option>
 
                   </select>
               </div>
-
-
-              <!-- 달력 -->
-
-                        <div class="cal2" style="margin-left: 10%;">
-                                    <label  class="nativeDatePicker">
-                                      <input type="date" name="bday">
-                                      <span class="validity"></span>
-                                    </label>
-
-                                    <fieldset class="fallbackDatePicker" hidden>
-                                      <legend class="fallbackLabel">Enter your birthday:</legend>
-
-                                      <label>
-                                        Day:
-                                        <select name="day"></select>
-                                      </label>
-
-                                      <label>
-                                        Month:
-                                        <select name="month">
-                                          <option>January</option>
-                                          <option>February</option>
-                                          <option>March</option>
-                                          <option>April</option>
-                                          <option>May</option>
-                                          <option>June</option>
-                                          <option>July</option>
-                                          <option>August</option>
-                                          <option>September</option>
-                                          <option>October</option>
-                                          <option>November</option>
-                                          <option>December</option>
-                                        </select>
-                                      </label>
-
-                                      <label>
-                                        Year:
-                                        <select name="year"></select>
-                                      </label>
-                                    </fieldset>
-
-                        </div>
-
-
-
                         <!-- 검색 -->
 
-                        <div class="cal2" style="margin-left: 270%;">
-                          <span class='green_window'>
-                              <button type="button" class='search-bar' value="검색" onclick="myFunction()"><img src="/img/search.png" style="width: 30px;   height: 25px;"></button>
-                            <input id="text" style="margin-left: 20px;margin-top: 3px; border:none;" type="text" name="search"  onkeydown="enterSearch()" />
-
-                          </span>
+                        <div class="cal2" style="margin-left: 300%;">
+                          <form action="http://15.165.153.54:3000/content/settlement_specific_store_re" method="post" class='green_window' target="targetURL">
+                         
+                            <input placeholder="상점이름" style="margin-left: 20px;margin-top: 3px; border:none;" type="text" id="sto_name"  name="sto_name" />
+                            
+                            <input type="image" class="search-bar" src="/img/search.png" style="width: 30px;   height: 25px;" name="submit" value="submit">
+                          
+                          </form>
                         </div>
 
 
@@ -113,22 +75,23 @@
                         <!-- 검색 -->
 
                         <div class="cal2" style="margin-left: 1%;">
-                          <span class='green_window'>
-                              <button type="button" class='search-bar' value="검색" onclick="myFunction()"><img src="/img/search.png" style="width: 30px;   height: 25px;"></button>
-                            <input id="text" style="margin-left: 20px;margin-top: 3px; border:none;" type="text" name="search"  onkeydown="enterSearch()" />
-
-                          </span>
+                          <form action="http://15.165.153.54:3000/content/settlement_carnum_re" method="post" class='green_window' target="targetURL">
+                         
+                            <input placeholder="차량번호" style="margin-left: 20px;margin-top: 3px; border:none;" type="text" id="car_number"  name="car_number" />
+                            
+                            <input type="image" class="search-bar" src="/img/search.png" style="width: 30px;   height: 25px;" name="submit" value="submit">
+                          
+                          </form>
                         </div>
+                        
 
 
 <div>
-  <iframe  name="iframe_target" scrolling="no" frameBorder="0" style="margin-top:25px; margin-left:-1060px; width: 1200px;  height:350px;" src="http://15.165.153.54:3000/content/settlement_all">
+  <iframe  name=targetURL scrolling="no" frameBorder="0" style="margin-top:25px; margin-left:-1060px; width: 1200px;  height:350px;" src="http://15.165.153.54:3000/content/settlement_all">
   </iframe>
 </div>
 
 </div>
-
-
 
 
 

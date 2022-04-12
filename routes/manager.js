@@ -86,7 +86,7 @@ app.get('/visitor', function (req, res){
   })
 })
 
-// 관리자/등록/상점 rm -rf/
+// 관리자/등록/상점 
 app.get('/store', function (req, res){
   res.render('manager/store',  {
     is_logined : req.session.is_logined,

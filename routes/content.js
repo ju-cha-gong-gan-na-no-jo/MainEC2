@@ -114,6 +114,9 @@ app.get('/calendar', function (req, res) {
 //등록페이지
 //##############################################################
 
+//##############################################################
+//등록페이지 -입주민
+//##############################################################
 
 //입주민조회
 app.get('/member_inquiry', function (req, res) {
@@ -135,6 +138,73 @@ app.get('/member_inquiry', function (req, res) {
   });
 
 });
+
+//입주민 조회 form
+app.get('/find_member', function(req,res){
+  res.render("content/find_member.ejs")
+})
+
+//입주민 조회 결과
+app.post('/find_member_re', function(req,res){
+  axios.post('http://52.79.193.214:3000/user/info/car/member',
+      {
+    		car_num  : req.body.car_num 
+    	})
+
+  .then(function (response) {
+    // console.log(response)
+    console.log(response.data)
+    // console.log(response.data[0]['NAME'] )
+    // console.log(response.data[0]['VISIT_DATE'] )
+    // console.log(response.data.paymentInfo[0]['TOTAL'])
+    // console.log(response.data.park_setting['CAR_COUNT'])
+
+    res.render("content/find_member_re.ejs",
+      {'response' : response}
+    )
+
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+})
+
+
+//입주민 추가
+app.post('/member_add', function(req,res){
+  axios.post('http://52.79.193.214:3000/user/add/member',
+    {
+      username : req.body.username,
+      password : req.body.password,
+      account_type : req.body.account_type
+    }
+  )
+  .then(function (response) {
+    if(response)
+    res.render('redirect',  {
+                  url : 'http://15.165.153.54:3000/login',
+                  message : '회원가입에 성공했습니다.'
+                }
+              );
+  })
+  .catch(function (error) {
+    console.log(error);
+    res.render('redirect',  {
+                  url : 'http://15.165.153.54:3000/join',
+                  message : '회원가입에 실패했습니다.'
+                }
+              );
+  });
+});
+
+
+
+
+
+//##############################################################
+//등록페이지 -방문객
+//##############################################################
 
 //1회방문객 조회
 app.get('/guest_inquiry', function(req,res){
@@ -178,6 +248,9 @@ app.get('/book_inquiry', function(req,res){
   });
 })
 
+//##############################################################
+//등록페이지 -상점
+//##############################################################
 
 //상점 조회
 app.get('/store_inquiry', function(req,res){
@@ -438,6 +511,9 @@ app.get('/statistical_earning_analysis', function (req, res) {
   res.render("content/statistical_earning_analysis.ejs")
 });
 
+//###############################################################
+//설정
+//###############################################################
 
 
 

@@ -11,7 +11,7 @@ const session = require('express-session');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.set('port', process.env.PORT || 3000)
+app.set('port', process.env.PORT || 4000)
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());

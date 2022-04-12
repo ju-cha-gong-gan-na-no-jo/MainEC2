@@ -8,7 +8,13 @@ const qs = require('qs');
 const session = require('express-session');
 //api  주소
 
+//실험
+app.get('/ho', function (req, res){
+  console.log(req.session.num)
+  console.log(req.session.type)
+  res.send('hello')
 
+});
 
 
 

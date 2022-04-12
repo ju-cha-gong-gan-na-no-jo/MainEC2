@@ -11,6 +11,7 @@ const mysql = require("mysql");
 const connection = mysql.createConnection({
 
 
+
 });
 
 
@@ -76,7 +77,6 @@ app.get("/stattistics_earning", function(req,res){
     }
   )
 })
-
 
 
 

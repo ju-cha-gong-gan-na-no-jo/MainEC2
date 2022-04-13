@@ -724,6 +724,104 @@ app.get('/statistical_earning_analysis', function (req, res) {
 //설정
 //###############################################################
 
+//설정 form
+app.get('/setting_form', function (req, res) {
+  res.render("content/setting_form.ejs")
+});
 
+
+
+
+ //설정 update
+app.post('/setting_update', function(req,res){
+  axios.post('http://3.36.211.38:4000/setting/all/modify',
+    {
+      park_number : req.body.park_number,
+      total_space : req.body.total_space,
+      rental_space : req.body.rental_space,
+      park_num : req.body.park_num,
+      return_time : req.body.return_time,
+      start_time : req.body.start_time,
+      end_time : req.body.end_time,
+      pay_fee : req.body.pay_fee,
+      pay_day_fee : req.body.pay_day_fee
+    }
+  )
+  .then(function (response) {
+    if(response)
+    res.render('redirect',  {
+                  url : 'http://15.165.153.54:3000/manager/setting',
+                  message : '상점 등록에 성공했습니다.'
+                }
+              );
+  })
+  .catch(function (error) {
+    console.log(error);
+    res.render('redirect',  {
+                  url : 'http://15.165.153.54:3000/manager/setting',
+                  message : '상점 등록에 등록에 실패했습니다.'
+                }
+              );
+  });
+});
+
+//###############################################################
+//상점 쿠폰등록
+//###############################################################
+
+//특정차량 정보조회
+app.get('/find_car', function(req,res){
+  res.render('content/find_car')
+})
+
+//상점 쿠폰등록 form
+app.post('/find_car_cupon', function(req,res){
+  axios.post('http://3.36.211.38:3000/status/car/data/id',
+  	{
+  		car_number : req.body.car_number
+  	}
+  )
+  .then(function (response) {
+  	// console.log(response)
+    console.log(response.data)
+    // console.log(response.data.found_data)
+    console.log(response.data.found_data[0]['CAR_NUM'])
+
+    res.render("content/find_car_cupon", {'response' : response})
+
+  })
+  .catch(function (error) {
+  	console.log(error);
+  });
+})
+
+ //쿠폰 등록
+ app.post('/car_coupon_add', function(req,res){
+  axios.post('http://3.36.211.38:4000/payment/coupon/add',
+    {
+      
+      car_number : req.body.car_number,
+      coupon : req.body.coupon,
+      store_num : req.body.store_num,
+      store_name : req.body.store_name
+    }
+  )
+  .then(function (response) {
+    if(response)
+    res.render('redirect',  {
+                  url : 'http://15.165.153.54:3000/content/real_time_status',
+                  message : '쿠폰등록에 성공했습니다.'
+                }
+              );
+  })
+  .catch(function (error) {
+    console.log(error);
+    res.render('redirect',  {
+                  url : 'http://15.165.153.54:3000/content/real_time_status',
+                  message : '쿠폰등록에 실패했습니다.'
+                }
+              );
+  });
+});
 
 module.exports = app;

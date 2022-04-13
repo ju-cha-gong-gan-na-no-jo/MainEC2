@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/menu.css"/>
+    <link rel="stylesheet" href="/css/box.css"/>
+    <link rel="stylesheet" href="/css/sb.css"/>
+    <link rel="stylesheet" href="/css/pubox.css"/>
+    <link rel="stylesheet" href="/css/pu.css"/>
+    <link rel="stylesheet" href="/css/num.css"/>
+    <link rel="stylesheet" href="/css/button.css"/>
+    <link rel="stylesheet" href="/css/search.css"/>
+    <link rel="stylesheet" href="/js/search.js"/>
+    <link rel="stylesheet" href="/js/day.js"/>
+</head>
+<script>
+function set(){
+       
+  alert("설정이 완료됐습니다.")
+
+}
+</script>
+
+<body>
+
+  <form class="x183" action="http://15.165.153.54:3000/content/setting_update" method="post">
+    <br><br><br><br>
+  <a style="background: linear-gradient(to left, #629ECF, #735B92);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; font-size:23px; font-weight: bolder;  font-family:  'GmarketSansMedium';">SETTING</a>
+
+  <br><br>
+
+  <input type="hidden" name="park_number" value="1";>
+  <input type="hidden" name="park_num" value="1";>
+
+      <a style="font-family:  'GmarketSansMedium'; font-size:15px;">전체공간: &nbsp;</a>
+      <div style="display: inline;" >
+          <input  class="num1" type='number' name='total_space' />
+      </div>
+      <a style="font-family:  'GmarketSansMedium'; font-size:15px;">&nbsp;  </a>
+    <br><br><br><br>
+    <a style="font-family:  'GmarketSansMedium'; font-size:15px;">빌려줄 공간: &nbsp;</a>
+    <div style="display: inline;" >
+        <input  class="num1" type='number' name='rental_space' />
+    </div>
+    <a style="font-family:  'GmarketSansMedium'; font-size:15px;">&nbsp;  </a>
+  <br><br><br><br>
+  <a style="font-family:  'GmarketSansMedium'; font-size:15px;">회차시간: &nbsp;</a>
+  <div style="display: inline;" >
+      <input  class="num1" type='text' name='return_time' />
+  </div>
+  <a style="font-family:  'GmarketSansMedium'; font-size:15px;">&nbsp;  </a>
+<br><br><br><br>
+<a style="font-family:  'GmarketSansMedium'; font-size:15px;">시작시간: &nbsp;</a>
+<div style="display: inline;" >
+    <input  class="num1" type='time' name='start_time' />
+</div>
+<a style="font-family:  'GmarketSansMedium'; font-size:15px;">&nbsp;  </a>
+<br><br><br><br>
+<a style="font-family:  'GmarketSansMedium'; font-size:15px;">끝나는 시간: &nbsp;</a>
+<div style="display: inline;" >
+    <input  class="num1" type='time' name='end_time' />
+</div>
+<a style="font-family:  'GmarketSansMedium'; font-size:15px;">&nbsp;  </a>
+<br><br><br><br>
+<a style="font-family:  'GmarketSansMedium'; font-size:15px;">요금: &nbsp;</a>
+<div style="display: inline;" >
+    <input  class="num1" type='number' name='pay_fee' />
+</div>
+<a style="font-family:  'GmarketSansMedium'; font-size:15px;">&nbsp;  </a>
+<br><br><br><br>
+<a style="font-family:  'GmarketSansMedium'; font-size:15px;">최대금액: &nbsp;</a>
+<div style="display: inline;" >
+    <input  class="num1" type='number' name='park_day_fee' />
+</div>
+<a style="font-family:  'GmarketSansMedium'; font-size:15px;">&nbsp;  </a>
+<br><br><br><br>
+
+                <div style="display: inline; " >
+                  <input style="margin-top: 20px;   " class="bu2"  type='submit' value='설정'/>
+                </div>
+
+
+        
+    </form>
+</body>
+</html>

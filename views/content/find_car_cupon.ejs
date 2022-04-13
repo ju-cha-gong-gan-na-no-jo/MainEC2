@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/menu.css"/>
+    <link rel="stylesheet" href="/css/box.css"/>
+    <link rel="stylesheet" href="/css/sb.css"/>
+    <link rel="stylesheet" href="/css/pubox.css"/>
+    <link rel="stylesheet" href="/css/pu.css"/>
+    <link rel="stylesheet" href="/css/num.css"/>
+    <link rel="stylesheet" href="/css/button.css"/>
+    <link rel="stylesheet" href="/css/search.css"/>
+    <link rel="stylesheet" href="/js/search.js"/>
+    <link rel="stylesheet" href="/js/day.js"/>
+</head>
+<script>
+
+</script>
+
+<body>
+
+  <form class="x183" action="http://15.165.153.54:3000/content/car_coupon_add" method="post">
+    <br><br><br><br>
+  <a style="background: linear-gradient(to left, #629ECF, #735B92);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; font-size:23px; font-weight: bolder;  font-family:  'GmarketSansMedium';">쿠폰</a>
+
+  <br><br>
+
+  <input type="hidden" name="store_num" value="2";>
+  <input type="hidden" name="store_name" value="방배골";>
+
+      <a style="font-family:  'GmarketSansMedium'; font-size:15px;">차량번호 : &nbsp;</a>
+      <div style="display: inline;" >
+          <input  class="num1" type='text' name='car_number' value="<%= response.data.found_data[0]['CAR_NUM'] %>" />
+      </div>
+      <a style="font-family:  'GmarketSansMedium'; font-size:15px;">&nbsp;  </a>
+    <br><br><br><br>
+    <a style="font-family:  'GmarketSansMedium'; font-size:15px;">입차시간 : &nbsp;</a>
+    <div style="display: inline;" >
+        <input  class="num1" type='text' name='rental_space'  value="<%= response.data.found_data[0]['IN_TIME'] %>"/>
+    </div>
+    <a style="font-family:  'GmarketSansMedium'; font-size:15px;">&nbsp;  </a>
+  <br><br><br><br>
+  <a style="font-family:  'GmarketSansMedium'; font-size:15px;">출차시간 : &nbsp;</a>
+  <div style="display: inline;" >
+      <input  class="num1" type='text' name='return_time' value="<%= response.data.found_data[0]['OUT_TIME'] %>" />
+  </div>
+  <a style="font-family:  'GmarketSansMedium'; font-size:15px;">&nbsp;  </a>
+<br><br><br><br>
+<a style="font-family:  'GmarketSansMedium'; font-size:15px;">유  형 : &nbsp;</a>
+<div style="display: inline;" >
+    <input  class="num1" type='text' name='start_time' value="<%= response.data.found_data[0]['TYPE'] %>"/>
+</div>
+<a style="font-family:  'GmarketSansMedium'; font-size:15px;">&nbsp;  </a>
+<br><br><br><br>
+<a style="font-family:  'GmarketSansMedium'; font-size:15px;">쿠  폰 : &nbsp;</a>
+<div style="display: inline;" >
+    <input  class="num1" type='text' name='coupon' />
+</div>
+<a style="font-family:  'GmarketSansMedium'; font-size:15px;">&nbsp;  </a>
+<br><br><br><br>
+
+
+                <div style="display: inline; " >
+                  <input style="margin-top: 20px;   " class="bu2"  type='submit' value='등록하기'/>
+                </div>
+
+
+        
+    </form>
+</body>
+</html>

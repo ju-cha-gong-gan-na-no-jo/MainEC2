@@ -28,58 +28,8 @@ function set(){
 <%-include('../setmenu.ejs')%>
 <body>
 
-  <div class="x183" >
-    <br><br><br><br>
-  <a style="background: linear-gradient(to left, #629ECF, #735B92);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent; font-size:23px; font-weight: bolder;  font-family:  'GmarketSansMedium';">SETTING</a>
-
-  <br><br>
-  <a style="font-family:  'GmarketSansMedium'; font-size:15px;">주차공간: &nbsp;</a>
-    <form style=" display: inline; " name="해당 폼의 이름" action="값을 보낼 주소" method="post">
-        <input style="margin-top: 40px; " class="num" type='number' name='userPhoneNumber' />
-    </form>
-  <a style="margin-left:20px; font-family:  'GmarketSansMedium'; font-size:15px;">대여공간: &nbsp;</a>
-    <form style=" display: inline; " name="해당 폼의 이름" action="값을 보낼 주소" method="post">
-        <input  class="num" type='number' name='userPhoneNumber' />
-    </form>
-    <br><br><br><br>
-    <a style="font-family:  'GmarketSansMedium'; font-size:15px;">회차 시간: &nbsp;</a>
-      <form style="display: inline;" name="해당 폼의 이름" action="값을 보낼 주소" method="post">
-          <input  class="num" type='number' name='userPhoneNumber' />
-      </form>
-      <a style="font-family:  'GmarketSansMedium'; font-size:15px;">&nbsp;시 </a>
-      <form style="display: inline; margin-left:20px;" name="해당 폼의 이름" action="값을 보낼 주소" method="post">
-          <input class="num" type='number' name='userPhoneNumber' />
-      </form>
-      <a style="font-family:  'GmarketSansMedium'; font-size:15px;">&nbsp; 분 </a>
-  <br><br><br><br>
-    <a style="font-family:  'GmarketSansMedium'; font-size:15px;">시간: &nbsp;</a>
-    <form style="display: inline;" name="해당 폼의 이름" action="값을 보낼 주소" method="post">
-        <input  class="num" type='number' name='userPhoneNumber' />
-    </form>
-      <a style="font-family:  'GmarketSansMedium'; font-size:15px;">&nbsp; 시 </a>
-    <form style="display: inline; margin-left:20px;" name="해당 폼의 이름" action="값을 보낼 주소" method="post">
-        <input class="num" type='number' name='userPhoneNumber' />
-    </form>
-    <a style="font-family:  'GmarketSansMedium'; font-size:15px;">&nbsp; 분 </a>
-    <br><br><br><br>
-      <a style="font-family:  'GmarketSansMedium'; font-size:15px;">주차요금: &nbsp;</a>
-      <form style="display: inline;" name="해당 폼의 이름" action="값을 보낼 주소" method="post">
-          <input  class="num1" type='number' name='userPhoneNumber' />
-      </form>
-      <a style="font-family:  'GmarketSansMedium'; font-size:15px;">&nbsp; 원 </a>
-
-      <br><br><br>
-        <a style=" font-family:  'GmarketSansMedium'; text-align: right; font-size:15px;">초기화 </a>
-    <br><br><br><br>
-
-                <form style="display: inline; " onclick="set()">
-                  <input style="margin-top: 20px;   " class="bu2"  type='button' value='설정'/>
-                </form>
-
-
-        </div>
+  <iframe  name=targetURL scrolling="no" frameBorder="0" style="margin-top:100px; margin-left: 30%; width: 650px;  height:700px;" src="http://15.165.153.54:3000/content/setting_form">
+  </iframe>
 
 </body>
 </html>

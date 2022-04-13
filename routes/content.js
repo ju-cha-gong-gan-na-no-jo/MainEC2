@@ -159,7 +159,7 @@ app.post('/find_member_re', function(req,res){
     // console.log(response.data.paymentInfo[0]['TOTAL'])
     // console.log(response.data.park_setting['CAR_COUNT'])
 
-    res.render("content/find_member_re.ejs",
+    res.render("content/member_update.ejs",
       {'response' : response}
     )
 
@@ -188,7 +188,7 @@ app.post('/member_add', function(req,res){
   .then(function (response) {
     if(response)
     res.render('redirect',  {
-                  url : 'http://15.165.153.54:3000/manager/member',
+                  url : 'http://15.165.153.54:3000/content/member_inquiry',
                   message : '입주민등록에 성공했습니다.'
                 }
               );
@@ -196,12 +196,49 @@ app.post('/member_add', function(req,res){
   .catch(function (error) {
     console.log(error);
     res.render('redirect',  {
-                  url : 'http://15.165.153.54:3000/manager/member',
+                  url : 'http://15.165.153.54:3000/content/member_inquiry',
                   message : '입주민등록에 실패했습니다.'
                 }
               );
   });
 });
+
+
+
+//입주민 수정
+app.post('/member_update', function(req,res){
+  axios.post('http://52.79.193.214:3000/user/update/member',
+    {
+      
+      name : req.body.name,
+      dong : req.body.dong,
+      ho : req.body.ho,
+      phone_num : req.body.phone_num,
+      member_type_num : req.body.member_type_num,
+      remark : req.body.remark,
+      car_num : req.body.car_num
+    }
+  )
+  .then(function (response) {
+    if(response)
+    res.render('redirect',  {
+                  url : 'http://15.165.153.54:3000/content/member_inquiry',
+                  message : '입주민수정에 성공했습니다.'
+                }
+              );
+  })
+  .catch(function (error) {
+    console.log(error);
+    res.render('redirect',  {
+                  url : 'http://15.165.153.54:3000/content/member_inquiry',
+                  message : '입주민수정에 실패했습니다.'
+                }
+              );
+  });
+});
+
+
+
 
 
 
@@ -452,6 +489,7 @@ app.post('/find_store_re', function(req,res){
 app.post('/store_add', function(req,res){
   axios.post('http://52.79.193.214:3000/user/add/store',
     {
+      store_num : req.body.store_num,
       store_name : req.body.store_name,
       phone_num : req.body.phone_num,
       addr : req.body.addr,
@@ -726,7 +764,25 @@ app.get('/statistical_earning_analysis', function (req, res) {
 
 //설정 form
 app.get('/setting_form', function (req, res) {
-  res.render("content/setting_form.ejs")
+
+  axios.get('http://3.36.211.38:4000/setting/all/get')
+  .then(function (response) {
+    // console.log(response)
+    console.log(response.data)
+    console.log(response.data.found_data[0]['RENTAL_SPACE'] )
+    console.log(response.data['return_time'] )
+    // console.log(response.data.paymentInfo[0]['TOTAL'])
+    // console.log(response.data.park_setting['CAR_COUNT'])
+
+    res.render("content/setting_form.ejs",
+      {'response' : response}
+    )
+
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
 });
 
 

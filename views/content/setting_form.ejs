@@ -40,43 +40,43 @@ function set(){
 
       <a style="font-family:  'GmarketSansMedium'; font-size:15px;">전체공간: &nbsp;</a>
       <div style="display: inline;" >
-          <input  class="num1" type='number' name='total_space' />
+          <input  class="num1" type='number' name='total_space' value="<%=response.data.found_data[0]['TOTAL_SPACE'] %>"/>
       </div>
       <a style="font-family:  'GmarketSansMedium'; font-size:15px;">&nbsp;  </a>
     <br><br><br><br>
     <a style="font-family:  'GmarketSansMedium'; font-size:15px;">빌려줄 공간: &nbsp;</a>
     <div style="display: inline;" >
-        <input  class="num1" type='number' name='rental_space' />
+        <input  class="num1" type='number' name='rental_space' value="<%=response.data.found_data[0]['RENTAL_SPACE'] %>" />
     </div>
     <a style="font-family:  'GmarketSansMedium'; font-size:15px;">&nbsp;  </a>
   <br><br><br><br>
-  <a style="font-family:  'GmarketSansMedium'; font-size:15px;">회차시간: &nbsp;</a>
+  <a style="font-family:  'GmarketSansMedium'; font-size:15px;">회차시간(분): &nbsp;</a>
   <div style="display: inline;" >
-      <input  class="num1" type='text' name='return_time' />
+      <input  class="num1" type='text' name='return_time' value="<%=response.data['return_time'] %>" />
   </div>
   <a style="font-family:  'GmarketSansMedium'; font-size:15px;">&nbsp;  </a>
 <br><br><br><br>
 <a style="font-family:  'GmarketSansMedium'; font-size:15px;">시작시간: &nbsp;</a>
 <div style="display: inline;" >
-    <input  class="num1" type='time' name='start_time' />
+    <input  class="num1" type='time' name='start_time' value="<%=response.data['start_time'] %>" />
 </div>
 <a style="font-family:  'GmarketSansMedium'; font-size:15px;">&nbsp;  </a>
 <br><br><br><br>
 <a style="font-family:  'GmarketSansMedium'; font-size:15px;">끝나는 시간: &nbsp;</a>
 <div style="display: inline;" >
-    <input  class="num1" type='time' name='end_time' />
+    <input  class="num1" type='time' name='end_time' value="<%=response.data['end_time'] %>" />
 </div>
 <a style="font-family:  'GmarketSansMedium'; font-size:15px;">&nbsp;  </a>
 <br><br><br><br>
-<a style="font-family:  'GmarketSansMedium'; font-size:15px;">요금: &nbsp;</a>
+<a style="font-family:  'GmarketSansMedium'; font-size:15px;">요금(<%=response.data['return_time'] %>분당): &nbsp;</a>
 <div style="display: inline;" >
-    <input  class="num1" type='number' name='pay_fee' />
+    <input  class="num1" type='number' name='pay_fee' value="<%=response.data['pay_fee'] %>" />
 </div>
 <a style="font-family:  'GmarketSansMedium'; font-size:15px;">&nbsp;  </a>
 <br><br><br><br>
-<a style="font-family:  'GmarketSansMedium'; font-size:15px;">최대금액: &nbsp;</a>
+<a style="font-family:  'GmarketSansMedium'; font-size:15px;">하루최대금액: &nbsp;</a>
 <div style="display: inline;" >
-    <input  class="num1" type='number' name='park_day_fee' />
+    <input  class="num1" type='number' name='park_day_fee' value="<%=response.data['penalty_fee'] %>" />
 </div>
 <a style="font-family:  'GmarketSansMedium'; font-size:15px;">&nbsp;  </a>
 <br><br><br><br>

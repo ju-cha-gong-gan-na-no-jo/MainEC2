@@ -6,14 +6,18 @@ const request = require('request');
 const CircularJSON = require('circular-json');
 const qs = require('qs');
 const session = require('express-session');
+const mqtt = require("mqtt");
+let client = mqtt.connect('mqtt://15.165.153.54:1883');
 //api  주소
 
 //실험
 app.get('/ho', function (req, res){
-  console.log(req.session.num)
-  console.log(req.session.type)
-  res.send('hello')
+  console.log(req)
+  // // console.log(data)
+  console.log(req.data)
 
+  res.write("<script>alert('success')</script>");
+  
 });
 
 
@@ -86,7 +90,7 @@ app.get('/visitor', function (req, res){
   })
 })
 
-// 관리자/등록/상점 
+// 관리자/등록/상점
 app.get('/store', function (req, res){
   res.render('manager/store',  {
     is_logined : req.session.is_logined,
@@ -105,6 +109,8 @@ app.get('/setting', function (req, res){
     type : req.session.type
   })
 })
+
+
 
 
 

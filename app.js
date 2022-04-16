@@ -37,6 +37,9 @@ app.use('/manager', manager);
 app.use('/', restful);
 app.use('/content', content);
 
+
+
+
 app.listen(app.get('port'), () =>{
 	console.log('3000 Port : 서버 실행 중')
 });

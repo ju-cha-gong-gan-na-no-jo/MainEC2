@@ -26,13 +26,11 @@
           $('#myModal2').hide();
       };
 
+    //   function 호출(){
 
+    //    alert("호출!")
 
-      function 호출(){
-       
-       alert("호출!")
-     
-     }
+    //  }
     </script>
 
 </head>
@@ -81,11 +79,16 @@
 <!-- 오늘 하루 데이터 -->
 
 <!-- 오늘 출차된 차량 수 -->
+<a style="position: relative; margin-left: 210px; color: #000;font-size:18px; top: 70px; font-weight: bolder;  font-family:  'GmarketSansMedium'; ">이용 대수</a>
+
+  <a style="position: relative; margin-left: 470px; color: #000;font-size:18px; top: 70px; font-weight: bolder;  font-family:  'GmarketSansMedium'; ">누적 금액</a>
 <div class="x57">
-<div class="remaining_seats">
+
+<div style="position:absolute" class="remaining_seats">
     <div style="width:100px; height:100px; margin-left: 50px; margin-top: 45px;  border-radius:50%; background:#D3D3D3;">
       <img style="width:100px; height:100px;" src="/img/car.png" />
-      <iframe scrolling="no" frameBorder="0" style="margin-top: -100px; margin-left: 250px;display: inline;" src="http://15.165.153.54:3000/content/current_departure" >
+
+      <iframe scrolling="no" frameBorder="0" style="margin-top: -90px; margin-left: 150px;display: inline;" src="http://15.165.153.54:3000/content/current_departure" >
       </iframe>
     </div>
 
@@ -96,7 +99,8 @@
     <div style="width:100px; height:100px; margin-top: 45px;margin-left: 450px;  border-radius:50%; background:#D3D3D3;">
       <img style="width:100px; height:100px;" src="/img/payment.png" />
 
-      <iframe scrolling="no" frameBorder="0" style="margin-top: -100px; margin-left: 250px;" src="http://15.165.153.54:3000/content/current_payment">
+
+      <iframe scrolling="no" frameBorder="0" style="margin-top: -90px; margin-left: 140px;" src="http://15.165.153.54:3000/content/current_payment">
       </iframe>
     </div>
     </div>
@@ -115,13 +119,13 @@
   <!-- 달력 -->
 
 <div class="remaining_seats">
-  <div class="x23"  style="z-index:-100; margin-top: 23px;">
+  <div class="x23"  style=" margin-left: 10px; z-index:-100; margin-top: 23px;">
     <iframe src="http://15.165.153.54:3000/content/calendar" style="margin-top: 10px; height: 600px;width: 720px;border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;">
     </iframe>
   </div>
   <!-- 메모 -->
   <div>
-  <input style="margin-top: 16px; margin-left:750px; border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;" type='text' class="x19"></input>
+  <input style="margin-top: 16px; margin-left:755px; border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px;" type='text' class="x19"></input>
   </div>
 </div>
 

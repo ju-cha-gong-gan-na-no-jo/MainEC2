@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.1116.0",
     "axios": "^0.26.1",
     "circular-json": "^0.5.9",
     "cookie-parser": "^1.4.6",
@@ -19,6 +20,7 @@
     "fullcalendar": "^5.10.2",
     "jsqr": "^1.4.0",
     "morgan": "^1.10.0",
+    "mqtt": "^4.3.7",
     "mysql": "^2.18.1",
     "node-fetch": "^3.2.3",
     "qs": "^6.10.3",

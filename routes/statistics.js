@@ -79,6 +79,24 @@ app.get("/stattistics_earning", function(req,res){
 })
 
 
+//############################################################################
+//상점 통계
+//############################################################################
+
+app.get("/store_statistics", function(req,res){
+  connection.query(
+    'select STORE_NAME as 유형, count(*) as 대수, sum(PARK_TIME) as 시간, sum(PAY_AMOUNT) as 돈 from DAILY_PAY_INFO where OUT_TIME >= "2022-03-01" and OUT_TIME < "2022-03-02" group by STORE_NAME;', function(err, rows){
+      if(!err){
+        res.send(rows);
+      }
+      else{
+        console.log(err)
+      }
+    }
+  )
+})
+
+
 
 
 

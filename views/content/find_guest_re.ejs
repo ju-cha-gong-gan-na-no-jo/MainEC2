@@ -16,6 +16,7 @@
 
 </head>
 <body>
+  <form action="http://15.165.153.54:3000/content/guest_update" method="post">
   <div class="x18" style="left: 0px">
 
   <table id="keywords" cellspacing="0" cellpadding="0">
@@ -29,18 +30,23 @@
     </tr>
     </thead>
 
-      <% for(var i=0; i < response.data.length; i++){ %>
+      
           <tr>
-            <td class="lalign"><%= response.data[i]['NAME'] %></td>
-            <td class="lalign"><%= response.data[i]['CAR_NUM'] %></td>
-            <td class="lalign"><%= response.data[i]['VISIT_DATE'] %></td>
-            <td class="lalign"><%= response.data[i]['PHONE_NUM'] %></td>
-            <td class="lalign"><%= response.data[i]['REMARK'] %></td>
+            <td class="lalign"><input type="text" name="name" value="<%= response.data[0]['NAME'] %>"></td>
+            <td class="lalign"><input type="text" name="visit_date" value="<%= response.data[0]['CAR_NUM'] %>"></td>
+            <td class="lalign"><input type="text" name="car_num" value="<%= response.data[0]['VISIT_DATE'] %>"></td>
+            <td class="lalign"><input type="text" name="phone_num" value="<%= response.data[0]['PHONE_NUM'] %>"></td>
+            <td class="lalign"><input type="text" name="remark" value="<%= response.data[0]['REMARK'] %>"></td>
 
           </tr>
-           <% } %>
+           
 
   </table>
+  <input type="hidden" name="member_num" value="2">
+  <input type="hidden" value="2" name="member_type_num">
+  <input type="submit">
 </div>
+
+</form>
 </body>
 </html>

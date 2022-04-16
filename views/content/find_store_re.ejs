@@ -33,11 +33,16 @@
       <% for(var i=0; i < response.data.length; i++){ %>
           <tr>
             <td class="lalign"><%= response.data[i]['STORE_NAME'] %></td>
-            <td class="lalign"><%= response.data[i]['OWNER_NAME'] %></td>
+            <td class="lalign"><%= response.data[i]['phone_num'] %></td>
             <td class="lalign"><%= response.data[i]['ADDR'] %></td>
-            <td class="lalign"><%= response.data[i]['PHONE_NUM'] %></td>
-            <td class="lalign"><%= response.data[i]['JOINED_DATE'] %></td>
-            <td class="lalign"><%= response.data[i]['REMARK'] %></td>
+            <td class="lalign"><%= response.data[i]['addr'] %></td>
+            <td class="lalign"><%= response.data[i]['owner_name'] %></td>
+            <td class="lalign"><%= response.data[i]['joined_date'] %></td>
+            <td class="lalign"><%= response.data[i]['withdrew_date'] %></td>
+            <td class="lalign"><%= response.data[i]['remark'] %></td>
+            <td class="lalign"><%= response.data[i]['user_id'] %></td>
+            <td class="lalign"><%= response.data[i]['password'] %></td>
+            <td class="lalign"><%= response.data[i]['account_type'] %></td>
 
           </tr>
            <% } %>

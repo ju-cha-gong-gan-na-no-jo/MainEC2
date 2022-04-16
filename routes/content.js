@@ -11,18 +11,18 @@ const mysql = require("mysql");
 
 //실시간 사용자에 빌려주는 공간
 app.get('/real_time_remaining_seats', function (req, res){
-  axios.get('http://3.36.211.38:3000/status/car/space/possible')
+  axios.get('http://3.38.19.220:3000/status/car/space/possible')
   .then(data =>{
     console.log(data.data)
-    console.log(data.data.park_usenumber)
-    console.log(data.data.park_setting['now_place'])
+    
+    console.log(data.data.JUCHA_NUMBER)
     res.render('content/remaining_seats.ejs', {'data' : data} )
   });
 });
 
 //실시간 실제 남은 자리
 app.get('/actual_parking_space', function (req, res){
-  axios.get('http://3.36.211.38:3000/status/car/space/now/all')
+  axios.get('http://54.180.14.72:3000/status/car/space/now/all')
   .then(data =>{
     console.log(data.data)
     console.log(data.data.park_setting['TOTAL_SPACE'])
@@ -31,9 +31,9 @@ app.get('/actual_parking_space', function (req, res){
   });
 });
 
-//실시간 주차현황
+//실시간 주차현황 표
 app.get('/real_time_status', function (req, res){
-  axios.get('http://3.36.211.38:3000/status/car/data/all')
+  axios.get('http://54.180.14.72:3000/status/car/data/all')
   .then(data => {
     console.log(data.data.current_data)
     res.render('content/real_time_status', {'data' : data})
@@ -48,7 +48,7 @@ app.get('/find_carnum', function(req,res){
 
 //특정차랑 정보조회 form
 app.post('/specific_vehicle_data_inquiry', function(req,res){
-  axios.post('http://3.36.211.38:3000/status/car/data/id',
+  axios.post('http://54.180.14.72:3000/status/car/data/id',
   	{
   		car_number : req.body.car_number
   	}
@@ -69,7 +69,7 @@ app.post('/specific_vehicle_data_inquiry', function(req,res){
 
 //하루 총 출차된 차량수
 app.get('/current_departure', function(req,res){
-  axios.get('http://3.36.211.38:3000/status/car/space/now/all/today')
+  axios.get('http://54.180.14.72:3000/status/car/space/now/all/today')
   .then(function (response) {
   	// console.log(response)
     console.log(response.data)
@@ -86,7 +86,7 @@ app.get('/current_departure', function(req,res){
 
 //현재 결제 총합
 app.get('/current_payment', function(req,res){
-  axios.get('http://3.36.211.38:4000/payment/payinfo/all/sum')
+  axios.get('http://3.38.19.220:3000/payment/payinfo/all/sum')
   .then(function (response) {
   	// console.log(response)
     console.log(response.data)
@@ -139,12 +139,12 @@ app.get('/member_inquiry', function (req, res) {
 
 });
 
-//입주민 조회 form
+//특정 입주민 조회 form
 app.get('/find_member', function(req,res){
   res.render("content/find_member.ejs")
 })
 
-//입주민 조회 결과
+//특정 입주민 조회 결과
 app.post('/find_member_re', function(req,res){
   axios.post('http://52.79.193.214:3000/user/info/car/member',
       {
@@ -159,7 +159,7 @@ app.post('/find_member_re', function(req,res){
     // console.log(response.data.paymentInfo[0]['TOTAL'])
     // console.log(response.data.park_setting['CAR_COUNT'])
 
-    res.render("content/member_update.ejs",
+    res.render("content/find_member_re.ejs",
       {'response' : response}
     )
 
@@ -188,7 +188,7 @@ app.post('/member_add', function(req,res){
   .then(function (response) {
     if(response)
     res.render('redirect',  {
-                  url : 'http://15.165.153.54:3000/content/member_inquiry',
+                  url : 'http://15.165.153.54:3000/manager/member',
                   message : '입주민등록에 성공했습니다.'
                 }
               );
@@ -196,7 +196,7 @@ app.post('/member_add', function(req,res){
   .catch(function (error) {
     console.log(error);
     res.render('redirect',  {
-                  url : 'http://15.165.153.54:3000/content/member_inquiry',
+                  url : 'http://15.165.153.54:3000/manager/member',
                   message : '입주민등록에 실패했습니다.'
                 }
               );
@@ -209,7 +209,6 @@ app.post('/member_add', function(req,res){
 app.post('/member_update', function(req,res){
   axios.post('http://52.79.193.214:3000/user/update/member',
     {
-      
       name : req.body.name,
       dong : req.body.dong,
       ho : req.body.ho,
@@ -222,7 +221,7 @@ app.post('/member_update', function(req,res){
   .then(function (response) {
     if(response)
     res.render('redirect',  {
-                  url : 'http://15.165.153.54:3000/content/member_inquiry',
+                  url : 'http://15.165.153.54:3000/manager/member',
                   message : '입주민수정에 성공했습니다.'
                 }
               );
@@ -230,7 +229,7 @@ app.post('/member_update', function(req,res){
   .catch(function (error) {
     console.log(error);
     res.render('redirect',  {
-                  url : 'http://15.165.153.54:3000/content/member_inquiry',
+                  url : 'http://15.165.153.54:3000/manager/member',
                   message : '입주민수정에 실패했습니다.'
                 }
               );
@@ -489,15 +488,16 @@ app.post('/find_store_re', function(req,res){
 app.post('/store_add', function(req,res){
   axios.post('http://52.79.193.214:3000/user/add/store',
     {
-      store_num : req.body.store_num,
       store_name : req.body.store_name,
       phone_num : req.body.phone_num,
       addr : req.body.addr,
       owner_name : req.body.owner_name,
       joined_date : req.body.joined_date,
       withdrew_date : req.body.withdrew_date,
-      account_num : req.body.account_num,
-      remark : req.body.remark
+      remark : req.body.remark,
+      user_id : req.body.user_id,
+      password : req.body.password,
+      account_type : req.body.account_type
     }
   )
   .then(function (response) {
@@ -511,7 +511,7 @@ app.post('/store_add', function(req,res){
   .catch(function (error) {
     console.log(error);
     res.render('redirect',  {
-                  url : 'http://15.165.153.54:3000/manager/store',
+                  url : 'http://15.165.153.54:3000/content/store',
                   message : '상점 등록에 등록에 실패했습니다.'
                 }
               );
@@ -526,7 +526,7 @@ app.post('/store_add', function(req,res){
 
 //정산페이지 전체 조회
 app.get('/settlement_all', function(req,res){
-  axios.get('http://3.36.211.38:4000/payment/payinfo/all')
+  axios.get('http://3.38.19.220:3000/payment/payinfo/all')
 
   .then(function (response) {
     // console.log(response)
@@ -548,7 +548,7 @@ app.get('/settlement_all', function(req,res){
 
 //정산 상점 데이터 조회
 app.get('/settlement_store', function(req,res){
-  axios.get('http://3.36.211.38:4000/payment/payinfo/sto')
+  axios.get('http://3.38.19.220:3000/payment/payinfo/sto')
 
   .then(function (response) {
     // console.log(response)
@@ -575,7 +575,7 @@ app.get('/settlement_specific_store', function (req, res) {
 
 //정산 특정상점 데이터 조회
 app.post('/settlement_specific_store_re', function(req,res){
-  axios.post('http://3.36.211.38:4000/payment/payinfo/sto/name',
+  axios.post('http://3.38.19.220:3000/payment/payinfo/sto/name',
       {
     		sto_name : req.body.sto_name
     	})
@@ -601,7 +601,7 @@ app.post('/settlement_specific_store_re', function(req,res){
 
 //정산 고객 데이터 조회
 app.get('/settlement_customer', function(req,res){
-  axios.get('http://3.36.211.38:4000/payment/payinfo/cus')
+  axios.get('http://3.38.19.220:3000/payment/payinfo/cus')
 
   .then(function (response) {
     // console.log(response)
@@ -629,7 +629,7 @@ app.get('/settlement_carnum', function (req, res) {
 
 //정산 특정 차량 데이터 조회
 app.post('/settlement_carnum_re', function(req,res){
-  axios.post('http://3.36.211.38:4000/payment/pay/data/num',
+  axios.post('http://3.38.19.220:3000/payment/pay/data/num',
       {
     		car_number : req.body.car_number
     	})
@@ -706,7 +706,9 @@ app.get('/statistical_space_analysis', function (req, res) {
   res.render("content/statistical_space_analysis.ejs")
 });
 
-
+//###############################################################
+//수익
+//###############################################################
 //통계 수익
 app.get('/statistical_earning', function(req,res){
   axios.get('http://15.165.153.54:3000/statistics/stattistics_earning')
@@ -765,7 +767,7 @@ app.get('/statistical_earning_analysis', function (req, res) {
 //설정 form
 app.get('/setting_form', function (req, res) {
 
-  axios.get('http://3.36.211.38:4000/setting/all/get')
+  axios.get('http://3.38.19.220:3000/setting/all/get')
   .then(function (response) {
     // console.log(response)
     console.log(response.data)
@@ -790,7 +792,7 @@ app.get('/setting_form', function (req, res) {
 
  //설정 update
 app.post('/setting_update', function(req,res){
-  axios.post('http://3.36.211.38:4000/setting/all/modify',
+  axios.post('http://3.38.19.220:3000/setting/all/modify',
     {
       park_number : req.body.park_number,
       total_space : req.body.total_space,
@@ -800,22 +802,22 @@ app.post('/setting_update', function(req,res){
       start_time : req.body.start_time,
       end_time : req.body.end_time,
       pay_fee : req.body.pay_fee,
-      pay_day_fee : req.body.pay_day_fee
+      park_day_fee : req.body.park_day_fee
     }
   )
   .then(function (response) {
     if(response)
     res.render('redirect',  {
-                  url : 'http://15.165.153.54:3000/manager/setting',
-                  message : '상점 등록에 성공했습니다.'
+                  url : 'http://15.165.153.54:3000/content/setting_form',
+                  message : '설정이 수정 되었습니다.'
                 }
               );
   })
   .catch(function (error) {
     console.log(error);
     res.render('redirect',  {
-                  url : 'http://15.165.153.54:3000/manager/setting',
-                  message : '상점 등록에 등록에 실패했습니다.'
+                  url : 'http://15.165.153.54:3000/content/setting',
+                  message : '설정 수정에 실패했습니다.'
                 }
               );
   });
@@ -832,7 +834,7 @@ app.get('/find_car', function(req,res){
 
 //상점 쿠폰등록 form
 app.post('/find_car_cupon', function(req,res){
-  axios.post('http://3.36.211.38:3000/status/car/data/id',
+  axios.post('http://54.180.14.72:3000/status/car/data/id',
   	{
   		car_number : req.body.car_number
   	}
@@ -851,33 +853,112 @@ app.post('/find_car_cupon', function(req,res){
   });
 })
 
- //쿠폰 등록
- app.post('/car_coupon_add', function(req,res){
-  axios.post('http://3.36.211.38:4000/payment/coupon/add',
-    {
-      
-      car_number : req.body.car_number,
-      coupon : req.body.coupon,
-      store_num : req.body.store_num,
-      store_name : req.body.store_name
-    }
-  )
+  //쿠폰 등록
+  app.post('/car_coupon_add', function(req,res){
+    axios.post('http://3.38.19.220:3000/payment/coupon/add',
+      {
+        
+        car_number : req.body.car_number,
+        coupon : req.body.coupon,
+        store_num : req.body.store_num,
+        store_name : req.body.store_name
+      }
+    )
+    .then(function (response) {
+      if(response)
+      res.render('redirect',  {
+                    url : 'http://15.165.153.54:3000/content/real_time_status',
+                    message : '쿠폰등록에 성공했습니다.'
+                  }
+                );
+    })
+    .catch(function (error) {
+      console.log(error);
+      res.render('redirect',  {
+                    url : 'http://15.165.153.54:3000/content/real_time_status',
+                    message : '쿠폰등록에 실패했습니다.'
+                  }
+                );
+    });
+  });
+  
+
+// ###############################################################
+// 상점 정산페이지
+// ###############################################################
+
+
+//하루 총 출차된 차량수
+app.get('/specific_store_pay', function(req,res){
+  axios.get('http://3.38.19.220:3000/payment/payinfo/all/sto/spe/get/k')
   .then(function (response) {
-    if(response)
-    res.render('redirect',  {
-                  url : 'http://15.165.153.54:3000/content/real_time_status',
-                  message : '쿠폰등록에 성공했습니다.'
-                }
-              );
+  	// console.log(response)
+    console.log(response.data)
+
+    res.render("content/specific_store_pay.ejs", {'response' : response})
+
   })
   .catch(function (error) {
-    console.log(error);
-    res.render('redirect',  {
-                  url : 'http://15.165.153.54:3000/content/real_time_status',
-                  message : '쿠폰등록에 실패했습니다.'
-                }
-              );
+  	console.log(error);
   });
+})
+
+
+
+app.get('/specific_store_settlement', function(req,res){
+  axios.get('http://3.38.19.220:3000/payment/payinfo/sto/name/get/k')
+  .then(function (response) {
+  	// console.log(response)
+    console.log(response.data)
+
+    res.render("content/specific_store_settlement.ejs", {'response' : response})
+
+  })
+  .catch(function (error) {
+  	console.log(error);
+  });
+})
+
+// ###############################################################
+// 상점 통계페이지
+// ###############################################################
+
+//통계 수익
+app.get('/store_revenue_statistics', function(req,res){
+  // axios.get('http://15.165.153.54:3000/statistics/store_statistics')
+
+  // .then(function (response) {
+  //   // console.log(response)
+  //   console.log(response.data)
+    
+  //   // console.log(response.data[0]['NAME'] )
+  //   // console.log(response.data[0]['VISIT_DATE'] )
+  //   // console.log(response.data.paymentInfo[0]['TOTAL'])
+  //   // console.log(response.data.park_setting['CAR_COUNT'])
+
+    res.render("content/store_revenue_statistics.ejs" )
+      // {'response' : response}
+   
+
+  // })
+  // .catch(function (error) {
+  //   console.log(error);
+  // });
 });
+
+
+
+//통계 수익 그래프 표
+app.get('/store_statistical_earning_table', function (req, res) {
+  res.render("content/store_statistical_earning_table.ejs")
+});
+
+
+//통계 수익 표
+app.get('/store_statistical_earning_analysis', function (req, res) {
+  res.render("content/store_statistical_earning_analysis.ejs")
+});
+
+
 
 module.exports = app;

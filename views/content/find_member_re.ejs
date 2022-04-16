@@ -16,7 +16,7 @@
 
 </head>
 <body>
-  <div class="x18" style="left: 0px">
+  <form action="http://15.165.153.54:3000/content/member_update" method="post" class="x18" style="left: 0px">
   <table id="keywords" cellspacing="0" cellpadding="0">
     <thead>
       <tr>
@@ -29,19 +29,20 @@
     </tr>
     </thead>
 
-      <% for(var i=0; i < response.data.length; i++){ %>
+      
           <tr>
-              <td class="lalign"><%= response.data[i]['CAR_NUM'] %></td>
-              <td class="lalign"><%= response.data[i]['NAME'] %></td>
-              <td class="lalign"><%= response.data[i]['DONG'] %></td>
-              <td class="lalign"><%= response.data[i]['HO'] %></td>
-              <td class="lalign"><%= response.data[i]['PHONE_NUM'] %></td>
-              <td class="lalign"><%= response.data[i]['REMARK'] %></td>
+              <td class="lalign"><input type="text" value="<%= response.data[0]['CAR_NUM'] %>"></td>
+              <td class="lalign"><input type="text" value="<%= response.data[0]['NAME'] %>"></td>
+              <td class="lalign"><input type="text" value="<%= response.data[0]['DONG'] %>"></td>
+              <td class="lalign"><input type="text" value="<%= response.data[0]['HO'] %>"></td>
+              <td class="lalign"><input type="text" value="<%= response.data[0]['PHONE_NUM'] %>"></td>
+              <td class="lalign"><input type="text" value="<%= response.data[0]['REMARK'] %>"></td>
 
           </tr>
-           <% } %>
-
+         
   </table>
-</div>
+
+  
+</form>
 </body>
 </html>

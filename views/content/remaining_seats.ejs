@@ -7,7 +7,14 @@
     <link rel="stylesheet" href="/css/ct.css"/>
     <title>Document</title>
 
-
+    <style>
+      @font-face {
+        font-family: 'GmarketSansMedium';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
 
 </head>
 <body>
@@ -18,9 +25,15 @@
     <div class="chart doughnut1">
       <div>
       <span class="center">
-        <p style="margin-top: 40%;">
-          <%= data.data.car_now%> / <%= data.data.park_usenumber%>
+        <div>
+
+        <p style="margin-top:30%;">
+          <a style=" background-color: #1F3158;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent; font-size:18px; font-weight: bolder;  font-family:  'GmarketSansMedium'; ">주차 가능 공간</a><br>
+           <%= data.data.JUCHA_NUMBER%>
         </p>
+      </div>
         </span>
       <div>
     </div>
@@ -54,16 +67,10 @@ const colorFn = (i, classname, color) => {
 }
 
 
-makeChart(<%= data.data.car_now%>, chart1, '#1F3158');
+makeChart(<%= data.data.JUCHA_GONGAN%>, chart1, '#1F3158');
 
     </script>
-  <!-- <h1>빌려줄공간</h1>
-  <p><%= data.data.park_usenumber%></p>
-  <p>현재 추차된 차량수</p>
-  <p><%= data.data.car_now%></p>
-  <br>
-  <h1>남은공간</h1>
-  <p><%= data.data.park_setting['now_place']%></p> -->
+
 
 
 

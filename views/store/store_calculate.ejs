@@ -1,18 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<%-include('../top.ejs')%>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<link rel="stylesheet" href="/css/box.css"/>
+<link rel="stylesheet" href="/css/sb.css"/>
+<link rel="stylesheet" href="/css/pubox.css"/>
+<link rel="stylesheet" href="/css/pu.css"/>
+
+<link rel="stylesheet" href="/css/search.css"/>
+<link rel="stylesheet" href="/js/search.js"/>
+<link rel="stylesheet" href="/js/day.js"/>
+<link rel="stylesheet" href="/css/manager_index.css"/>
+
+<style>
+  ::-webkit-scrollbar{width: 8px; height: 8px;}
+  ::-webkit-scrollbar-track{background-color: #ffffff;}
+  ::-webkit-scrollbar-thumb{background-color: #D3D3D3; border-radius: 7px;}
+
+
+</style>
+
+<script>
+function goURL2(url)
+{
+targetURL.location.href=url;
+}
+</script>
+
+
+
 </head>
+<%-include('../store_top.ejs')%>
+<%-include('../menu_store.ejs')%>
 <body>
-  <%-include('../menu_store.ejs')%>
+  <div class="remaining_seats">
+<div>
+  <div style="margin-top: 150px;width:285px; height:80px; background-color:#fff;   box-shadow: 0px 3px 6px #00000029;  z-index:1;margin-left: 1000px;">
+    <!-- <div style="width:75px; height:75px; margin-left: 20px;  border-radius:50%; background:#D3D3D3; z-index:2;"/> -->
+    <img style="width:75px; margin-top: 3px; height:75px; margin-left: 20px;  border-radius:50%; background:#D3D3D3; z-index:2;" src="/img/payment.png" />
+    <iframe scrolling="no" frameBorder="0" style=" margin-top: -85px; margin-left: 90px; z-index:3;" src="http://15.165.153.54:3000/content/specific_store_pay">
+    </iframe>
+  </div>
+</div>
+
+
+<div class="cal" style=" margin-top: 300px;">
+<!-- 셀렉트박스 -->
+              <div class="cal2" style="margin-left: -1050px;">
+                
+              </div>
+                        <!-- 검색 -->
+
+                        <div class="cal2" style="margin-left: 10px;">
+                          
+                        </div>
+
+
+
+
+                        <!-- 검색 -->
+
+                        <div class="cal2" style="margin-left: 1%;">
+                          <form action="http://15.165.153.54:3000/content/settlement_carnum_re" method="post" class='green_window' target="targetURL">
+                         
+                            <input placeholder="차량번호" style="margin-left: 20px;margin-top: 3px; border:none;" type="text" id="car_number"  name="car_number" />
+                            
+                            <input type="image" class="search-bar" src="/img/search.png" style="width: 30px;   height: 25px;" name="submit" value="submit">
+                           
+                          </form>
+                        </div>
+                        
+
+
+<div>
+  <iframe  name=targetURL scrolling="no" frameBorder="0" style="margin-top:25px; margin-left:-1060px; width: 1200px;  height:350px;" src="http://15.165.153.54:3000/content/specific_store_settlement">
+  </iframe>
+</div>
+
+</div>
+</div>
 
 
 
 
 </body>
 </html>
+

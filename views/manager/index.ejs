@@ -40,23 +40,32 @@
 
 
     <div style=" width: 1200px;" class="remaining_seats">
-      <div  class="pie_chart">
+      <!-- 전체주차공간 현황 -->
+
+          <div>
+            <iframe scrolling="no" frameBorder="0" style="z-index: 500;margin-top:0px; width:120px; height:220px; " src="http://15.165.153.54:3000/content/actual_parking_space">
+            </iframe>
+          </div>
+
+      <!-- <div  class="pie_chart">
         <iframe scrolling="no" frameBorder="0" style="margin-top: -35px; margin-left: 80px;width:350px; height:350px; " src="http://15.165.153.54:3000/content/real_time_remaining_seats">
         </iframe>
-      </div>
-
-  <!-- 전체주차공간 현황 -->
-
-      <div>
-        <iframe scrolling="no" frameBorder="0" style="margin-left: 50px;margin-top:20px; width:350px; height:220px; " src="http://15.165.153.54:3000/content/actual_parking_space">
+      </div> -->
+      <div  style="height: 300px;">
+        <iframe scrolling="no" frameBorder="0" style="margin-top: 60px; margin-left: 50px; width:350px; height:350px; " src="http://15.165.153.54:3000/content/entire_real_time_remaining_seats">
         </iframe>
       </div>
+      <div  style="height: 300px;">
+        <iframe scrolling="no" frameBorder="0" style="margin-top: -35px; margin-left: -100px; width:350px; height:350px; " src="http://15.165.153.54:3000/content/real_time_remaining_seats">
+        </iframe>
+      </div>
+
 
 
 
 <!-- 열림버튼 -->
 
-      <input   style=" margin-left: 100px; margin-top: 20px; border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px; padding-top: 80px; font-family:  'GmarketSansMedium';color: #fff; font-size: 20px; " type="button" onclick="myModal()" class="x58"value="열림">
+      <input   style=" margin-left: 150px; margin-top: 20px; border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;border-right-width: 0px; padding-top: 80px; font-family:  'GmarketSansMedium';color: #fff; font-size: 20px; " type="button" onclick="myModal()" class="x58"value="열림">
 
   <img style="margin-left: 963px; margin-top: 30px; width:80px; height:80px; position:absolute;" src="/img/crossing_gate_o.png" />
   <!-- <a style="color: #fff; margin-top: 135px;font-size:20px; width: 50px;font-weight: bolder;  font-family:  'GmarketSansMedium';display:inline;">	열림</a> -->

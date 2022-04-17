@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/main.css"/>
+    <link rel="stylesheet" href="/css/pu.css"/>
+
+    <script>
+      function select(){
+        document.getElementById('click').style.backgroundColor="gray"
+      }
+    </script>
+
+    <style>
+  ::-webkit-scrollbar{width: 8px; height: 8px;}
+  ::-webkit-scrollbar-track{background-color: #ffffff;}
+  ::-webkit-scrollbar-thumb{background-color: #D3D3D3; border-radius: 7px;}
+
+
+</style>
+
+
+
+</head>
+<body>
+  <div class="x18" style="left: 0px">
+  <table id="keywords" cellspacing="0" cellpadding="0">
+    <thead>
+      <tr>
+      <th>차량번호</th>
+      <th>입차시간</th>
+      <th>출차시간</th>
+      <th>유형</th>
+    </tr>
+    </thead>
+
+      <% for(var i=0; i < response.data.current_data.length; i++){ %>
+          <tr  id="click" onclick="select()">
+              <td class="lalign" ><%= response.data.current_data[i]['CAR_NUM'] %></td>
+              <td class="lalign" ><%= response.data.current_data[i]['IN_TIME'] %></td>
+              <td class="lalign" ><%= response.data.current_data[i]['OUT_TIME'] %></td>
+              <td class="lalign" ><%= response.data.current_data[i]['MEMBER_TYPE'] %></td>
+
+          </tr>
+           <% } %>
+
+  </table>
+  </div>
+</body>
+</html>

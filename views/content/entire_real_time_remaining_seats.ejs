@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/ct.css"/>
+    <title>Document</title>
+
+    <style>
+      @font-face {
+        font-family: 'GmarketSansMedium';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+
+</head>
+<body>
+
+  <!-- 차트 -->
+<div class='wrap1'>
+  <div class='container1'>
+    <div class="chart doughnut1" style="width: 200px;height: 200px;">
+      <div>
+      <span class="center1">
+        <div>
+
+        <p style="margin-top:25%;">
+          <a style=" background-color:#676767;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent; font-size:15px; font-weight: bolder;  font-family:  'GmarketSansMedium'; ">전체 주차 가능 공간</a><br>
+           <%= response.data.park_setting['PARK_NUMBER']%>
+        </p>
+      </div>
+        </span>
+      <div>
+    </div>
+    <div class="x58"></div>
+<div class="x59"></div>
+  </div>
+
+  <!-- <button style="font-family: SpoqaHanSansNeo-Regular;" onClick=replay()>
+   RESET
+  </button> -->
+</div>
+
+<script>
+const chart1 = document.querySelector('.doughnut1');
+
+
+const makeChart = (percent, classname, color) => {
+  let i = 1;
+  let chartFn = setInterval(function() {
+    if (i < percent) {
+      colorFn(i, classname, color);
+      i++;
+    } else {
+      clearInterval(chartFn);
+    }
+  }, 10);
+}
+
+const colorFn = (i, classname, color) => {
+  classname.style.background = "conic-gradient(" + color + " 0% " + i + "%, #dedede " + i + "% 100%)";
+}
+
+
+makeChart(<%=response.data.park_setting['PARK_GONGAN']%>, chart1, '#8D8D8D');
+
+    </script>
+
+
+
+
+
+
+</body>
+</html>

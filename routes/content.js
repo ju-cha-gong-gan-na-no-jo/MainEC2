@@ -7,9 +7,10 @@ const CircularJSON = require('circular-json');
 const qs = require('qs');
 const session = require('express-session');
 const mysql = require("mysql");
+const { response } = require("./main");
 
 
-//실시간 사용자에 빌려주는 공간
+//실시간 사용자에 빌려주는 공간(파이차트 대여공간)
 app.get('/real_time_remaining_seats', function (req, res){
   axios.get('http://3.38.19.220:3000/status/car/space/possible')
   .then(data =>{
@@ -19,6 +20,19 @@ app.get('/real_time_remaining_seats', function (req, res){
     res.render('content/remaining_seats.ejs', {'data' : data} )
   });
 });
+
+
+//실시간  공간(파이차트 전체공간)
+app.get('/entire_real_time_remaining_seats', function (req, res){
+  axios.get('http://54.180.14.72:3000/status/car/space/now/all')
+  .then(response =>{
+    console.log(response.data)
+    
+    console.log(response.data.park_setting['PARK_NUMBER'])
+    res.render('content/entire_real_time_remaining_seats.ejs', {'response' : response} )
+  });
+});
+
 
 //실시간 실제 남은 자리
 app.get('/actual_parking_space', function (req, res){
@@ -824,6 +838,34 @@ app.post('/setting_update', function(req,res){
 });
 
 //###############################################################
+//상점 
+//###############################################################
+
+//###############################################################
+//상점 메인
+//###############################################################
+
+//실시간 주차현황 표
+app.get('/customer_parking_status', function (req, res){
+  axios.get('http://54.180.14.72:3000/status/car/data/all/cli')
+  .then(function (response) {
+    // console.log(response)
+    console.log(response.data)
+
+    // console.log(response.data.paymentInfo[0]['TOTAL'])
+    // console.log(response.data.park_setting['CAR_COUNT'])
+
+    res.render("content/customer_parking_status.ejs",
+      {'response' : response}
+    )
+
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+});
+
+//###############################################################
 //상점 쿠폰등록
 //###############################################################
 
@@ -888,7 +930,7 @@ app.post('/find_car_cupon', function(req,res){
 // ###############################################################
 
 
-//하루 총 출차된 차량수
+//상점 오늘 하루 정산된 금액
 app.get('/specific_store_pay', function(req,res){
   axios.get('http://3.38.19.220:3000/payment/payinfo/all/sto/spe/get/k')
   .then(function (response) {
@@ -904,7 +946,7 @@ app.get('/specific_store_pay', function(req,res){
 })
 
 
-
+//상점 오늘 하루 정산 현황
 app.get('/specific_store_settlement', function(req,res){
   axios.get('http://3.38.19.220:3000/payment/payinfo/sto/name/get/k')
   .then(function (response) {

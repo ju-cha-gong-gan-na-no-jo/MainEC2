@@ -7,6 +7,7 @@ const CircularJSON = require('circular-json');
 const qs = require('qs');
 const session = require('express-session');
 const  jsQR  =  require ( "jsqr" ) ;
+const AWS = require('aws-sdk');
 
 app.get('/', function (req, res) {
   res.send('Hello World!')
@@ -61,15 +62,25 @@ app.post('/payment_result', function(req, res){
     console.log(response.data)
     console.log(response.data.payment[0]['CAR_NUM'])
 
-    res.render('payment_result', {'response' : response})
+// s3이미지 가져오기
+    //############################################
 
+
+    //############################################
+
+    res.render("payment_result", {'response' : response, 'url' : url })
+      })
   })
+    
+
+
+
   .catch(function (error) {
     console.log(error);
   });
 
 
-})
+// })
 
 
 //로그인 페이지
@@ -414,6 +425,8 @@ app.post('/out', (req, res) => {
 
   
 });
+
+
 
 
 

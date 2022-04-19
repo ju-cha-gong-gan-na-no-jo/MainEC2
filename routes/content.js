@@ -8,6 +8,7 @@ const qs = require('qs');
 const session = require('express-session');
 const mysql = require("mysql");
 const { response } = require("./main");
+const AWS = require('aws-sdk');
 
 
 //실시간 사용자에 빌려주는 공간(파이차트 대여공간)
@@ -223,11 +224,11 @@ app.post('/member_add', function(req,res){
 app.post('/member_update', function(req,res){
   axios.post('http://52.79.193.214:3000/user/update/member',
     {
+      name_old : req.body.name_old,
       name : req.body.name,
       dong : req.body.dong,
       ho : req.body.ho,
       phone_num : req.body.phone_num,
-      member_type_num : req.body.member_type_num,
       remark : req.body.remark,
       car_num : req.body.car_num
     }
@@ -235,7 +236,7 @@ app.post('/member_update', function(req,res){
   .then(function (response) {
     if(response)
     res.render('redirect',  {
-                  url : 'http://15.165.153.54:3000/manager/member',
+                  url : 'http://15.165.153.54:3000/content/member_inquiry',
                   message : '입주민수정에 성공했습니다.'
                 }
               );
@@ -243,8 +244,33 @@ app.post('/member_update', function(req,res){
   .catch(function (error) {
     console.log(error);
     res.render('redirect',  {
-                  url : 'http://15.165.153.54:3000/manager/member',
+                  url : 'http://15.165.153.54:3000/content/member_inquiry',
                   message : '입주민수정에 실패했습니다.'
+                }
+              );
+  });
+});
+
+//입주민 삭제
+app.post('/member_delete', function(req,res){
+  axios.post('http://52.79.193.214:3000/user/delete/member',
+    {
+      name : req.body.name
+    }
+  )
+  .then(function (response) {
+    if(response)
+    res.render('redirect',  {
+                  url : 'http://15.165.153.54:3000/content/member_inquiry',
+                  message : '입주민 삭제에 성공했습니다.'
+                }
+              );
+  })
+  .catch(function (error) {
+    console.log(error);
+    res.render('redirect',  {
+                  url : 'http://15.165.153.54:3000/content/member_inquiry',
+                  message : '입주민 삭제에 실패했습니다.'
                 }
               );
   });
@@ -350,6 +376,65 @@ app.post('/guest_add', function(req,res){
 
 
 
+//1회 방문객 수정
+app.post('/guest_update', function(req,res){
+  axios.post('http://52.79.193.214:3000/user/update/guest',
+    {
+      
+      name_old : req.body.name_old,
+      visit_date : req.body.visit_date,
+      car_num : req.body.car_num,
+      phone_num : req.body.phone_num,
+      remark : req.body.remark,
+      name : req.body.name
+    }
+  )
+  .then(function (response) {
+    if(response)
+    res.render('redirect',  {
+                  url : 'http://15.165.153.54:3000/content/guest_inquiry',
+                  message : '1회 방문객 수정에 성공했습니다.'
+                }
+              );
+  })
+  .catch(function (error) {
+    console.log(error);
+    res.render('redirect',  {
+                  url : 'http://15.165.153.54:3000/content/guest_inquiry',
+                  message : '1회 방문객 수정에 실패했습니다.'
+                }
+              );
+  });
+});
+
+
+//1회 방문객 삭제
+app.post('/guest_delete', function(req,res){
+  axios.post('http://52.79.193.214:3000/user/delete/guest',
+    {
+      name : req.body.name
+    }
+  )
+  .then(function (response) {
+    if(response)
+    res.render('redirect',  {
+                  url : 'http://15.165.153.54:3000/content/guest_inquiry',
+                  message : '1회 방문객 삭제에 성공했습니다.'
+                }
+              );
+  })
+  .catch(function (error) {
+    console.log(error);
+    res.render('redirect',  {
+                  url : 'http://15.165.153.54:3000/content/guest_inquiry',
+                  message : '1회 방문객 삭제에 실패했습니다.'
+                }
+              );
+  });
+});
+
+
+
 
 //정기 방문객 조회
 app.get('/book_inquiry', function(req,res){
@@ -436,6 +521,67 @@ app.post('/book_add', function(req,res){
               );
   });
 });
+
+
+
+//정기 방문객 수정
+app.post('/book_update', function(req,res){
+  axios.post('http://52.79.193.214:3000/user/update/book',
+    {
+      
+      booked_purpose : req.body.booked_purpose,
+      validity : req.body.validity,
+      phone_num : req.body.phone_num,
+      name : req.body.name,
+      company_name: req.body.company_name,
+      car_num : req.body.car_num,
+      remark : req.body.remark
+    }
+  )
+  .then(function (response) {
+    if(response)
+    res.render('redirect',  {
+                  url : 'http://15.165.153.54:3000/content/find_book_re',
+                  message : '정기 방문객 수정에 성공했습니다.'
+                }
+              );
+  })
+  .catch(function (error) {
+    console.log(error);
+    res.render('redirect',  {
+                  url : 'http://15.165.153.54:3000/content/find_book_re',
+                  message : '정기 방문객 수정에 실패했습니다.'
+                }
+              );
+  });
+});
+
+
+//정기방문객 삭제
+app.post('/book_delete', function(req,res){
+  axios.post('http://52.79.193.214:3000/user/delete/book',
+    {
+      name : req.body.name
+    }
+  )
+  .then(function (response) {
+    if(response)
+    res.render('redirect',  {
+                  url : 'http://15.165.153.54:3000/content/book_inquiry',
+                  message : '정기방문객 삭제에 성공했습니다.'
+                }
+              );
+  })
+  .catch(function (error) {
+    console.log(error);
+    res.render('redirect',  {
+                  url : 'http://15.165.153.54:3000/content/book_inquiry',
+                  message : '정기방문객 삭제에 실패했습니다.'
+                }
+              );
+  });
+});
+
 
 
 
@@ -532,6 +678,67 @@ app.post('/store_add', function(req,res){
   });
 });
 
+
+//상점 수정
+app.post('/store_update', function(req,res){
+  axios.post('http://52.79.193.214:3000/user/add/store',
+    {
+      store_name : req.body.store_name,
+      phone_num : req.body.phone_num,
+      addr : req.body.addr,
+      owner_name : req.body.owner_name,
+      joined_date : req.body.joined_date,
+      withdrew_date : req.body.withdrew_date,
+      remark : req.body.remark,
+      user_id : req.body.user_id,
+      password : req.body.password,
+      account_type : req.body.account_type
+    }
+  )
+  .then(function (response) {
+    if(response)
+    res.render('redirect',  {
+                  url : 'http://15.165.153.54:3000/content/store_inquiry',
+                  message : '상점 수정에 성공했습니다.'
+                }
+              );
+  })
+  .catch(function (error) {
+    console.log(error);
+    res.render('redirect',  {
+                  url : 'http://15.165.153.54:3000/content/store_inquiry',
+                  message : '상점 수정에 등록에 실패했습니다.'
+                }
+              );
+  });
+});
+
+
+
+//상점 삭제
+app.post('/store_delete', function(req,res){
+  axios.post('http://52.79.193.214:3000/user/delete/store',
+    {
+      store_name : req.body.store_name
+    }
+  )
+  .then(function (response) {
+    if(response)
+    res.render('redirect',  {
+                  url : 'http://15.165.153.54:3000/content/book_inquiry',
+                  message : '정기방문객 삭제에 성공했습니다.'
+                }
+              );
+  })
+  .catch(function (error) {
+    console.log(error);
+    res.render('redirect',  {
+                  url : 'http://15.165.153.54:3000/content/book_inquiry',
+                  message : '정기방문객 삭제에 실패했습니다.'
+                }
+              );
+  });
+});
 
 
 // ########################################################################
@@ -887,13 +1094,20 @@ app.post('/find_car_cupon', function(req,res){
     // console.log(response.data.found_data)
     console.log(response.data.found_data[0]['CAR_NUM'])
 
-    res.render("content/find_car_cupon", {'response' : response})
+    // s3이미지 가져오기
+    //############################################
 
+
+
+    //############################################
+
+    res.render("content/find_car_cupon", {'response' : response, 'url' : url })
+      })
   })
   .catch(function (error) {
   	console.log(error);
   });
-})
+// })
 
   //쿠폰 등록
   app.post('/car_coupon_add', function(req,res){
@@ -909,7 +1123,7 @@ app.post('/find_car_cupon', function(req,res){
     .then(function (response) {
       if(response)
       res.render('redirect',  {
-                    url : 'http://15.165.153.54:3000/content/real_time_status',
+                    url : 'http://15.165.153.54:3000/content/customer_parking_status',
                     message : '쿠폰등록에 성공했습니다.'
                   }
                 );
@@ -917,7 +1131,7 @@ app.post('/find_car_cupon', function(req,res){
     .catch(function (error) {
       console.log(error);
       res.render('redirect',  {
-                    url : 'http://15.165.153.54:3000/content/real_time_status',
+                    url : 'http://15.165.153.54:3000/content/customer_parking_status',
                     message : '쿠폰등록에 실패했습니다.'
                   }
                 );
@@ -1000,6 +1214,9 @@ app.get('/store_statistical_earning_table', function (req, res) {
 app.get('/store_statistical_earning_analysis', function (req, res) {
   res.render("content/store_statistical_earning_analysis.ejs")
 });
+
+
+
 
 
 

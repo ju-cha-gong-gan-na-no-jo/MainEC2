@@ -31,16 +31,20 @@
 
       
           <tr>
-              <td class="lalign"><input type="text" value="<%= response.data[0]['CAR_NUM'] %>"></td>
-              <td class="lalign"><input type="text" value="<%= response.data[0]['NAME'] %>"></td>
-              <td class="lalign"><input type="text" value="<%= response.data[0]['DONG'] %>"></td>
-              <td class="lalign"><input type="text" value="<%= response.data[0]['HO'] %>"></td>
-              <td class="lalign"><input type="text" value="<%= response.data[0]['PHONE_NUM'] %>"></td>
-              <td class="lalign"><input type="text" value="<%= response.data[0]['REMARK'] %>"></td>
+              <td class="lalign"><input type="text" name="car_num" value="<%= response.data[0]['CAR_NUM'] %>"></td>
+              <td class="lalign"><input type="text" name="name"value="<%= response.data[0]['NAME'] %>"></td>
+              <td class="lalign"><input type="text" name="dong" value="<%= response.data[0]['DONG'] %>"></td>
+              <td class="lalign"><input type="text" name="ho" value="<%= response.data[0]['HO'] %>"></td>
+              <td class="lalign"><input type="text" name="phone_num" value="<%= response.data[0]['PHONE_NUM'] %>"></td>
+              <td class="lalign"><input type="text" name="remark"value="<%= response.data[0]['REMARK'] %>"></td>
 
           </tr>
          
   </table>
+  <input type="hidden" value="<%= response.data[0]['NAME'] %>" name="name_old">
+
+  <input type="submit" value="수정">
+  <input type='submit' value='삭제' onclick='this.form.action="http://15.165.153.54:3000/content/member_delete"' >
 
   
 </form>

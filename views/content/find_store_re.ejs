@@ -15,6 +15,7 @@
     </style>
 </head>
 <body>
+  <form action="http://15.165.153.54:3000/content/store_update" method="post">
   <div class="x18" style="left: 0px">
 
 
@@ -26,28 +27,27 @@
       <th>주소</th>
       <th>핸드폰번호</th>
       <th>가입일</th>
+      <th>만료일</th>
       <th>비고</th>
     </tr>
     </thead>
 
-      <% for(var i=0; i < response.data.length; i++){ %>
-          <tr>
-            <td class="lalign"><%= response.data[i]['STORE_NAME'] %></td>
-            <td class="lalign"><%= response.data[i]['phone_num'] %></td>
-            <td class="lalign"><%= response.data[i]['ADDR'] %></td>
-            <td class="lalign"><%= response.data[i]['addr'] %></td>
-            <td class="lalign"><%= response.data[i]['owner_name'] %></td>
-            <td class="lalign"><%= response.data[i]['joined_date'] %></td>
-            <td class="lalign"><%= response.data[i]['withdrew_date'] %></td>
-            <td class="lalign"><%= response.data[i]['remark'] %></td>
-            <td class="lalign"><%= response.data[i]['user_id'] %></td>
-            <td class="lalign"><%= response.data[i]['password'] %></td>
-            <td class="lalign"><%= response.data[i]['account_type'] %></td>
 
+          <tr>
+            <td class="lalign"><input type="text" name="store_name" value="<%= response.data[0]['STORE_NAME'] %>"></td>
+            <td class="lalign"><input type="text" name="owner_name" value="<%= response.data[0]['OWNER_NAME'] %>"></td>
+            <td class="lalign"><input type="text" name="addr" value="<%= response.data[0]['ADDR'] %>"></td>
+            <td class="lalign"><input type="text" name="phone_num" value="<%= response.data[0]['PHONE_NUM'] %>"></td>
+            <td class="lalign"><input type="text" name="joined_date" value="<%= response.data[0]['JOINED_DATE'] %>"></td>
+            <td class="lalign"><input type="text" name="withdrew_date" value="<%= response.data[0]['WITHDREW_DATE'] %>"></td>
+            <td class="lalign"><input type="text" name="remark" value="<%= response.data[0]['REMARK'] %>"></td>
           </tr>
-           <% } %>
+
 
   </table>
+  <input type="submit" value="수정">
+  <input type='submit' value='삭제' onclick='this.form.action="http://15.165.153.54:3000/content/store_delete"' >
 </div>
+</form>
 </body>
 </html>
